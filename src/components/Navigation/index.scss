@@ -1,3 +1,5 @@
+@import '../../styles/_colors.scss';
+
 .nav {
     margin: auto;
     display: flex;
@@ -12,6 +14,29 @@
     .navLinks {
         flex-grow: 4;
         align-self: stretch;
+        display: flex;
+        flex-direction: row;
         margin: 10px;
+        justify-content: center;
+
+        ul {
+            display: inline-block;
+        }
+
+        li {
+            align-self:center;
+            order: 3;
+            font-family: "Roboto", "Helvetica Neue";
+            font-size: medium;
+
+            a {
+                display: inline-block;
+                text-decoration: none;
+                color: $text-color-two;
+                font-weight: 500;
+                font-size: medium;
+                text-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.5);
+            }
+        }
     }
 }

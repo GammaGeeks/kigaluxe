@@ -5,14 +5,16 @@ import './index.scss'
 function Navigation() {
   return (
     <div className='nav'>
-        <div className='navLogo'>
-            <img src={require('../../assets/logo.png')} alt='logo' />
-        </div>
-        <div className='navLinks'>
-            <a href='#'>Home</a>
-            <a href='#'>About</a>
-            <a href='#'>Contact</a>
-        </div>
+      <div className='navLogo'>
+        <img src={require('../../assets/logo.png')} alt='logo' />
+      </div>
+      <div className='navLinks'>
+        <ul>
+            <li className='link active'><a href='#'>Home</a></li>
+            <li className='link'><a href='#'>Listings</a></li>
+            <li className='link'><a href='#'>About</a></li>
+        </ul>
+      </div>
     </div>
   )
 }
