@@ -1,6 +1,7 @@
 @import '../../styles/_colors.scss';
 
-.content {
+.container {
+    background-color: $background-primary;
     // max-width: calc(100vw - 20%);
     height: 100vh;
     margin: auto;

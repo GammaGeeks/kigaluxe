@@ -3,7 +3,7 @@ import './index.scss'
 
 const Layout = () => {
   return (
-    <div className='content'>
+    <div className='container'>
       <Outlet />
     </div>
   )
