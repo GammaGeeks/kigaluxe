@@ -1,10 +1,23 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useState } from 'react'
 import './index.scss'
 
 function Navigation() {
+  const [navbar, setNavbar] = useState(false)
+
+  const changeNavBackground = () => {
+    console.log(window.scrollY)
+    if (window.scrollY >= 100) {
+      setNavbar(true)
+    } else {
+      setNavbar(false)
+    }
+  }
+
+  window.addEventListener('scroll', changeNavBackground)
+
   return (
-    <div className='nav'>
+    <div className={`nav ${navbar ? 'active' : ''}`}>
       <div className='navLogo'>
         <img src={require('../../assets/logo.png')} alt='logo' />
       </div>
