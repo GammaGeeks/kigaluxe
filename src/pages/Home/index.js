@@ -2,14 +2,13 @@
 import React from 'react'
 import Navigation from '../../components/Navigation'
 import './index.scss'
+import SectionOne from '../../components/HomePage/SectionOne'
 
 const Home = () => {
   return (
-    <div>
-      <div className='sectionOne'>
-        <Navigation />
-        <div className='textSection'></div>
-      </div>
+    <div className='sectionOne'>
+      <Navigation />
+      <SectionOne />
     </div>
   )
 }
