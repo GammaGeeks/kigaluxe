@@ -1,0 +1,17 @@
+.nav {
+    margin: auto;
+    display: flex;
+    box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.5);
+    flex-direction: row;
+
+    .navLogo {
+        align-self: flex-start;
+        margin: 10px 0 10px 40px;
+    }
+
+    .navLinks {
+        flex-grow: 4;
+        align-self: stretch;
+        margin: 10px;
+    }
+}
