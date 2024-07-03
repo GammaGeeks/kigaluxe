@@ -2,6 +2,36 @@
 
 .sectionTwo {
     height: 100vh;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: $background-primary;
+
+    .title {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 2rem;
+        font-weight: 700;
+        color: $white;
+        margin-bottom: 40px;
+        text-shadow: $shadow-text-2;
+    }
+
+    .cards-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 40%);
+        width: 80%;
+
+        .cards {
+            height: 80%;
+        }
+
+        .pagination {
+            height: 20%;
+        }
+    }
 }

@@ -56,32 +56,6 @@ function Search() {
               <option value='7000+'>7000+</option>
             </select>
           </div>
-          {/* <div>
-            <span>
-              <FontAwesomeIcon className='icon-select' icon={faBed} size='lg'/>
-              <label for='bedrooms'>Bedrooms</label>
-            </span>
-            <select id='bedrooms' name='bedrooms'>
-              <option value=''>Any</option>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4+'>4+</option>
-            </select>
-          </div>
-          <div>
-            <span>
-              <FontAwesomeIcon className='icon-select' icon={faBath} size='lg'/>
-              <label for='bathrooms'>Bathrooms</label>
-            </span>
-            <select id='bathrooms' name='bathrooms'>
-              <option value=''>Any</option>
-              <option value='1'>1</option>
-              <option value='2'>2</option>
-              <option value='3'>3</option>
-              <option value='4+'>4+</option>
-            </select>
-          </div> */}
           <div>
             <button type='submit'>
               <FontAwesomeIcon icon={faSearch} size='2x' />
