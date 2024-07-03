@@ -13,10 +13,15 @@
     display: flex;
     box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.5);
     flex-direction: row;
+    z-index: 3;
 
     .navLogo {
         align-self: flex-start;
-        margin: 20px 0 10px 40px;
+        margin: 20px 0 10px 60px;
+
+        img {
+            width: 80%;
+        }
     }
 
     .navLinks {
@@ -24,7 +29,7 @@
         align-self: stretch;
         display: flex;
         flex-direction: row;
-        margin: 20px 40px 10px 0px;
+        margin: 10px 60px 10px 0px;
         justify-content: center;
 
         ul {
