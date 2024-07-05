@@ -28,6 +28,18 @@
 
         .cards {
             height: 80%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+
+            .card {
+                flex: 0 1 48%;
+                width: 150px;
+                margin: 5px;
+                border: 1px solid #ccc;
+                padding: 20px;
+                text-align: center;
+            }
         }
 
         .pagination {
