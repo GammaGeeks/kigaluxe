@@ -1,6 +1,8 @@
 import React from 'react'
 
 import './index.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 
 const SectionTwo = () => {
   return (
@@ -8,22 +10,72 @@ const SectionTwo = () => {
       <div className='title'>
         <span>Trending Properties</span>
       </div>
-      <div class="card-container">
-        <div class="card">
-          <h3>Card 1</h3>
-          <p>This is the content of card 1.</p>
+      <div className="card-container">
+        <div className="card">
+          <div className='card-image'>
+            <img src={require('../../../assets/HouseOne 1.png')} alt='' />
+          </div>
+          <div className='card-details'>
+            <h3>House for sale in Kigali</h3>
+            <span><FontAwesomeIcon icon={faLocationDot} /> Kigali City, Gasabo, Kimihurura</span>
+            <p>Published on 12 June | Expires on 12 July</p>
+            <p><b>Details:</b> 4 bedrooms, 2 bathrooms</p>
+            <div className="badges">
+              <span className='type'>For Sale</span>
+              <span className='price'><b>Price:</b> $200,000</span>
+            </div>
+            <button>View Property</button>
+          </div>
         </div>
-        <div class="card">
-          <h3>Card 2</h3>
-          <p>This is the content of card 2.</p>
+        <div className="card">
+          <div className='card-image'>
+            <img src={require('../../../assets/HouseOne 1.png')} alt='' />
+          </div>
+          <div className='card-details'>
+            <h3>House for sale in Kigali</h3>
+            <span><FontAwesomeIcon icon={faLocationDot} /> Kigali City, Gasabo, Kimihurura</span>
+            <p>Published on 12 June | Expires on 12 July</p>
+            <p><b>Details:</b> 4 bedrooms, 2 bathrooms</p>
+            <div className="badges">
+              <span className='type'>For Sale</span>
+              <span className='price'><b>Price:</b> $200,000</span>
+            </div>
+            <button>View Property</button>
+          </div>
         </div>
-        <div class="card">
-          <h3>Card 3</h3>
-          <p>This is the content of card 3.</p>
+        
+        <div className="card">
+          <div className='card-image'>
+            <img src={require('../../../assets/HouseOne 1.png')} alt='' />
+          </div>
+          <div className='card-details'>
+            <h3>House for sale in Kigali</h3>
+            <span><FontAwesomeIcon icon={faLocationDot} /> Kigali City, Gasabo, Kimihurura</span>
+            <p>Published on 12 June | Expires on 12 July</p>
+            <p><b>Details:</b> 4 bedrooms, 2 bathrooms</p>
+            <div className="badges">
+              <span className='type'>For Sale</span>
+              <span className='price'><b>Price:</b> $200,000</span>
+            </div>
+            <button>View Property</button>
+          </div>
         </div>
-        <div class="card">
-          <h3>Card 4</h3>
-          <p>This is the content of card 4.</p>
+        
+        <div className="card">
+          <div className='card-image'>
+            <img src={require('../../../assets/HouseOne 1.png')} alt='' />
+          </div>
+          <div className='card-details'>
+            <h3>House for sale in Kigali</h3>
+            <span><FontAwesomeIcon icon={faLocationDot} /> Kigali City, Gasabo, Kimihurura</span>
+            <p>Published on 12 June | Expires on 12 July</p>
+            <p><b>Details:</b> 4 bedrooms, 2 bathrooms</p>
+            <div className="badges">
+              <span className='type'>For Sale</span>
+              <span className='price'><b>Price:</b> $200,000</span>
+            </div>
+            <button>View Property</button>
+          </div>
         </div>
       </div>
 
