@@ -29,9 +29,26 @@
         .cards {
             height: 80%;
         }
+    }
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: calc(100vh - 40%);
+        width: 80%;
+      
+        .card {
+          width: 200px;
+          margin: 10px;
+          padding: 20px;
+          background-color: #f1f1f1;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          text-align: center;
+        }
 
         .pagination {
             height: 20%;
         }
     }
+      
 }
