@@ -10,7 +10,7 @@ import SectionThree from '../../components/HomePage/SectionThree'
 
 const Home = () => {
   return (
-  <div className='page'>
+  <div className='container-fluid'>
     <Navigation />
     <SectionOne />
     <Search />
