@@ -4,12 +4,12 @@ import React from 'react'
 import './index.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
-import { Stack, Col, Card } from 'react-bootstrap'
+import { Stack, Row, Col, Card } from 'react-bootstrap'
 
 const SectionTwo = () => {
   return (
-    <div className='row sectionTwo'>
-      <div className='col-lg-12 title'>
+    <Row className='sectionTwo'>
+      <div className='row title'>
         <h2 className='text-center'>Trending Properties</h2>
       </div>
       <div className="row card-container">
@@ -115,7 +115,7 @@ const SectionTwo = () => {
           </Card>
         </Col> */}
       </div>
-    </div>
+    </Row>
   )
 }
 

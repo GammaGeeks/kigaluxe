@@ -2,17 +2,18 @@
 
 .sectionTwo {
     height: 100vh;
+    width: 100%;
     display: flex;
     width: inherit;
-    // flex-direction: column;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: $background-primary;
+    margin: 0px !important;
 
     
 
     .title {
-      margin-top: 100px;
       margin-bottom: 10px;
 
       h2 {
@@ -31,7 +32,7 @@
       .card {
         height: auto;
         border-radius: 20px;
-        margin-bottom: 1rem;
+        margin-bottom: 1.8rem;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
         .image {
