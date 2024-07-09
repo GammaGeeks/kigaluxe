@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight, faLocationDot } from '@fortawesome/free-solid-svg-icons'
-import { Stack, Row, Col, Card, Button } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 
 import './index.scss'
 

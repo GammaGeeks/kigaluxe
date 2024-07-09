@@ -2,8 +2,6 @@
 import React from 'react'
 
 import './index.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import {  Row, Col } from 'react-bootstrap'
 
 import HomeCard from './HomeCard'
