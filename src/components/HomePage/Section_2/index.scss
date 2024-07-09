@@ -14,7 +14,8 @@
     
 
     .title {
-      margin-bottom: 10px;
+      margin-top: 180px;
+      margin-bottom: 100px;
 
       h2 {
         font-family: 'Montserrat', sans-serif !important;
@@ -33,10 +34,17 @@
         height: auto;
         border-radius: 20px;
         margin-bottom: 1.8rem;
+        display: flex;
+        flex-direction: initial;
+        justify-content: flex-start;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
         .image {
-          padding: 20px 20px;
+          padding: 15px 20px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
 
         .content {
@@ -124,6 +132,33 @@
 @media (max-width: 767px) {
   .sectionTwo {
     height: auto;
+
+    .title {
+      margin-top: 250px;
+      margin-bottom: 100px;
+
+      h2 {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: bold;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-shadow: $shadow-text-2;
+        color: $white;
+      }
+
+      .content {
+        padding: 10px 5px;
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        span {
+          font-size: 0.8rem;
+          line-height: 0.8;
+        }
+
+      }
+    }
   }
 }
 
