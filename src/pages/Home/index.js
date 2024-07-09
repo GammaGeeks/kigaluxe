@@ -6,6 +6,7 @@ import SectionTwo from '../../components/HomePage/SectionTwo'
 import Search from '../../components/HomePage/Search'
 
 import './index.scss'
+import SectionThree from '../../components/HomePage/SectionThree'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
     <SectionOne />
     <Search />
     <SectionTwo />
+    <SectionThree />
   </div>
   )
 }
