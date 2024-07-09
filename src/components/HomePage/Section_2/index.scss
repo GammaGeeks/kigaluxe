@@ -1,0 +1,182 @@
+@import '../../../styles/_colors.scss';
+
+.sectionTwo {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    width: inherit;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: $background-primary;
+    margin: 0px !important;
+
+    
+
+    .title {
+      margin-top: 180px;
+      margin-bottom: 100px;
+
+      h2 {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: bold;
+        font-size: 2rem;
+        font-weight: 700;
+        text-shadow: $shadow-text-2;
+        color: $white;
+      }
+    }
+
+    .card-container {
+      width: 80%;
+
+      .card {
+        height: auto;
+        border-radius: 20px;
+        margin-bottom: 1.8rem;
+        display: flex;
+        flex-direction: initial;
+        justify-content: flex-start;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        .image {
+          padding: 15px 20px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .content {
+          height: auto;
+
+          h2 {
+            margin-top: 0;
+            font-family: 'Hind Madurai';
+            font-size: 1.8em;
+            font-weight: 600;
+            text-shadow: $shadow-text;
+            margin-bottom: 0.3em;
+          }
+
+          span {
+            font-family: 'Hind Madurai';
+            color: #00000094;
+            font-size: 1.2em;
+            font-weight: 400;
+            line-height: 1.4;
+          }
+
+          p {
+            margin-top: 0.3em;
+            margin-bottom: 0.3em;
+            font-family: 'Hind Madurai';
+            font-size: 1.2em;
+            font-weight: 400;
+            line-height: 1.4;
+          }
+
+          .badges {
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            
+            .type {
+              background-color: $text-color-one;
+              font-family: 'Hind Madurai';
+              font-size: 0.7em;
+              font-weight: 700;
+              color: #ffffff;
+              margin-right: 10px;
+              padding: 0.3rem 1rem;
+              border-radius: 20px;
+              box-shadow: $shadow-box-1;
+            }
+            
+            .price {
+              background-color: $text-color-one;
+              font-family: 'Hind Madurai';
+              font-size: 0.7em;
+              font-weight: 700;
+              color: #ffffff;
+              margin-right: 10px;
+              padding: 0.3rem 1rem;
+              border-radius: 20px;
+              box-shadow: $shadow-box-1;
+            }
+          }
+        
+          button {
+            background-color: $background-primary;
+            color: $white;
+            border: none;
+            margin-top: 0.5em;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 20px;
+            width: 120px;
+            font-family: 'Hind Madurai';
+            font-weight: 700;
+            font-size: 0.7em;
+            &:hover {
+              background-color: darken($background-primary, 10%);
+            }
+          }
+        }
+      }
+    }
+}
+
+/* Styles for screens smaller than 768px (e.g., mobile devices) */
+@media (max-width: 767px) {
+  .sectionTwo {
+    height: auto;
+
+    .card-container {
+      width: 100%;
+    }
+
+
+    .title {
+      margin-top: 250px;
+      margin-bottom: 100px;
+
+      h2 {
+        font-family: 'Montserrat', sans-serif !important;
+        font-weight: bold;
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-shadow: $shadow-text-2;
+        color: $white;
+      }
+
+      .content {
+        padding: 10px 5px;
+        h2 {
+          font-size: 1.3rem;
+        }
+
+        span {
+          font-size: 0.8rem;
+          line-height: 0.8;
+        }
+
+      }
+    }
+  }
+}
+
+/* Styles for screens between 768px and 1199px (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .sectionTwo {
+    height: auto;
+  }
+}
+
+/* Styles for screens 1200px and larger (e.g., desktops) */
+@media (min-width: 1200px) {
+  .sectionTwo {
+    height: auto;
+  }
+}

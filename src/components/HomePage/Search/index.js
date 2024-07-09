@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
+import { Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEarthAfrica, faHouse, faDollarSign, faLandmarkAlt, faBed, faBath, faSearch } from '@fortawesome/free-solid-svg-icons'
 
@@ -8,17 +9,17 @@ import './index.scss'
 
 function Search() {
   return (
-    <div className='search-homepage'>
+    <Row className='search-homepage'>
       <form>
-        <div className='buttons'>
-          <div>
+        <div className='row buttons'>
+          <Col>
             <span>
               <FontAwesomeIcon className='icon-input' icon={faEarthAfrica} size='lg'/>
               <label for='location'>Location</label>
             </span>
             <input type='text' id='location' name='location' placeholder="Choose location"/>
-          </div>
-          <div>
+          </Col>
+          <Col>
             <span>
               <FontAwesomeIcon className='icon-select' icon={faHouse} size='lg'/>
               <label for='propertyType'>Property Type</label>
@@ -29,8 +30,8 @@ function Search() {
               <option value='apartment'>Apartment</option>
               <option value='duplex'>Duplex</option>
             </select>
-          </div>
-          <div>
+          </Col>
+          <Col>
             <span>
               <FontAwesomeIcon className='icon-select' icon={faDollarSign} size='lg'/>
               <label for='priceRange'>Price Range</label>
@@ -42,8 +43,8 @@ function Search() {
               <option value='500000-700000'>$500,000 - $700,000</option>
               <option value='700000+'>$700,000+</option>
             </select>
-          </div>
-          <div>
+          </Col>
+          <Col>
             <span>
               <FontAwesomeIcon className='icon-select' icon={faLandmarkAlt} size='lg'/>
               <label for='propertyType'>Property Size</label>
@@ -55,15 +56,15 @@ function Search() {
               <option value='5000-7000'>5000 - 7000 sqm</option>
               <option value='7000+'>7000+</option>
             </select>
-          </div>
-          <div>
+          </Col>
+          <Col>
             <button type='submit'>
               <FontAwesomeIcon icon={faSearch} size='2x' />
             </button>
-          </div>
+          </Col>
         </div>
       </form>
-    </div>
+    </Row>
   )
 }
 

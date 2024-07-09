@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
 import './index.scss'
+import MenuButton from './MenuButton'
 
 function Navigation() {
   const [navbar, setNavbar] = useState(false)
@@ -27,6 +28,9 @@ function Navigation() {
             <li className='link'><a href='#'>Listings</a></li>
             <li className='link'><a href='#'>About</a></li>
         </ul>
+      </div>
+      <div className='navMenu'>
+        <MenuButton />
       </div>
     </div>
   )

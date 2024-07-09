@@ -1,13 +1,14 @@
 @import '../../styles/_colors.scss';
 
 
-.page{
-    background-color: $background-primary;
+.container-fluid{
     background: url('../../assets/home.png') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 100vh;
+    min-height: 120vh;
+    padding: 0 !important;
     display: block;
+    width: 100% !important;
 }
