@@ -158,7 +158,7 @@
 }
 
 /* Styles for screens 1200px and larger (e.g., desktops) */
-@media (min-width: 1200px) {
+@media (min-width: 1300px) and (max-width: 1500px) {
     .card {
         .card-img {
             width: 50% !important;
