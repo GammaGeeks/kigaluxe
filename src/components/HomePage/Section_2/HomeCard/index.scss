@@ -111,7 +111,7 @@
 }
 
 /* Styles for screens between 768px and 1199px (e.g., tablets) */
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 1299px) {
     .card {
         .card-img {
             width: 50% !important;
@@ -159,6 +159,52 @@
 
 /* Styles for screens 1200px and larger (e.g., desktops) */
 @media (min-width: 1300px) and (max-width: 1500px) {
+    .card {
+        .card-img {
+            width: 50% !important;
+            height: auto !important;
+        }
+        .card-body {
+            overflow: hidden;
+            width: 50% !important;
+            .card-title {
+                font-size: 2.4em;
+            }
+            
+            .card-text {
+                font-size: 1.5em;
+        
+                span {
+                    font-size: 1em;
+                }
+
+                p {
+                    font-size: 1.2em;
+                }
+
+                .badges {
+                    .type {
+                        font-size: 0.7em;
+                    }
+
+                    .price {
+                        font-size: 0.7em;
+                    }
+                }
+            }
+
+            button {
+                font-size: 0.8em;
+                padding: 0.5rem 1rem;
+                margin-top: 0.8em;
+            }
+        }
+    }
+}
+
+
+/* Styles for screens 1500px and larger (e.g., desktops) */
+@media (min-width: 1500px) {
     .card {
         .card-img {
             width: 50% !important;
