@@ -119,3 +119,24 @@
       }
     }
 }
+
+/* Styles for screens smaller than 768px (e.g., mobile devices) */
+@media (max-width: 767px) {
+  .sectionTwo {
+    height: auto;
+  }
+}
+
+/* Styles for screens between 768px and 1199px (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .sectionTwo {
+    height: auto;
+  }
+}
+
+/* Styles for screens 1200px and larger (e.g., desktops) */
+@media (min-width: 1200px) {
+  .sectionTwo {
+    height: auto;
+  }
+}
