@@ -5,13 +5,13 @@ import './index.scss'
 
 function SectionThree() {
   return (
-    <div className='sectionThree'>
-      <div className='wrapper'>
-        <div className='title'>
-          <span>We are available in the whole parts of Rwanda</span>
+    <div className='row sectionThree'>
+      <div className='row wrapper'>
+        <div className='col-lg-12 title'>
+          <h2 className='text-center'>We are available in the whole parts of Rwanda</h2>
         </div>
 
-        <div className='card-container'>
+        <div className='row card-container'>
           <div className="card">
             <img src={require('../../../assets/location_one.png')} alt='Image one' />
           </div>

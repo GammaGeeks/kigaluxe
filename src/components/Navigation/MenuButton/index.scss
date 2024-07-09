@@ -1,0 +1,17 @@
+.menu-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-button {
+  font-size: 2rem; // Adjust size as necessary
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333; // Adjust color as necessary
+}
+
+.menu-button:focus {
+  outline: none;
+}

@@ -20,13 +20,16 @@
         border-radius: 50px;
 
         .title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
-            font-size: 2rem;
-            font-weight: 700;
-            color: $white;
             margin-bottom: 40px;
-            text-shadow: $shadow-text-2;
+
+            h2 {
+                font-family: 'Montserrat', sans-serif !important;
+                font-weight: bold;
+                font-size: 2rem;
+                font-weight: 700;
+                text-shadow: $shadow-text-2;
+                color: $white;
+            }
         }
     
         

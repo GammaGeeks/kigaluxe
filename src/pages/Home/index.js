@@ -15,7 +15,7 @@ const Home = () => {
     <SectionOne />
     <Search />
     <SectionTwo />
-    <SectionThree />
+    {/* <SectionThree /> */}
   </div>
   )
 }
