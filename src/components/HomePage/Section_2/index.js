@@ -12,7 +12,7 @@ const SectionTwo = () => {
   return (
     <Row className='sectionTwo'>
       <div className='row title'>
-        <h2 className='text-center'>Trending Properties</h2>
+        <h2 className='text-center'>Top Ranked Appartments</h2>
       </div>
       <div className="row card-container">
         <Col md={6}>

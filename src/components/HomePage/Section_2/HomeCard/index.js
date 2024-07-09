@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faCaretRight, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { Stack, Row, Col, Card, Button } from 'react-bootstrap'
 
 import './index.scss'
@@ -26,7 +26,13 @@ const HomeCard = () => {
             <span className='type'>For Sale</span>
             <span className='price'><b>Price:</b> $200,000</span>
           </div>
-          <Button variant="primary">View Property</Button>
+          <Button variant="primary">More Details <span>
+              <FontAwesomeIcon
+                icon={faCaretRight}
+                color='white'
+              />
+            </span>
+          </Button>
         </Card.Text>
       </Card.Body>
     </Card>
