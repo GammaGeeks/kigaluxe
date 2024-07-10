@@ -4,7 +4,7 @@ import { Col } from 'react-bootstrap'
 
 import './index.scss'
 
-const LocationCard = ({image}) => {
+const LocationCard = ({image, title}) => {
 
   return (
     <Col
@@ -17,6 +17,11 @@ const LocationCard = ({image}) => {
       className="card-location align-self-center"
     >
       <img className='img-fluid' src={image} alt='Image one' />
+      <div className='content'>
+        <div className='text-center'>
+          <h4>{title}</h4>
+        </div>
+      </div>
     </Col>
   )
 }

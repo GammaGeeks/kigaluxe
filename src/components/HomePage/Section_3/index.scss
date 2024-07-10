@@ -15,13 +15,13 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 100%;
-        padding: 40px;
+        height: 120%;
         background-color: $background-secondary;
         border-radius: 50px;
 
         .title {
             margin-bottom: 40px;
+            margin-top: 40px;
 
             h2 {
                 font-family: 'Montserrat', sans-serif !important;
@@ -44,3 +44,59 @@
         }
     }
 }
+
+@media (max-width: 767px) {
+    .sectionThree {
+        padding: 0;
+
+        .wrapper {
+            border: none;
+            border-radius: 50px 50px 0px 0px;
+
+            .card-container {
+                gap: 6px;
+            }
+        }
+    }
+}
+
+/* Styles for screens between 768px and 1199px (e.g., tablets) */
+@media (min-width: 768px) and (max-width: 1299px) {
+    .sectionThree {
+
+        .wrapper {
+
+            .card-container {
+                gap: 6px;
+            }
+        }
+    }
+}
+
+/* Styles for screens 1200px and larger (e.g., desktops) */
+@media (min-width: 1300px) and (max-width: 1399px) {
+    .sectionThree {
+
+        .wrapper {
+
+            .card-container {
+                gap: 12px;
+            }
+        }
+    }
+}
+
+/* Styles for screens 1200px and larger (e.g., desktops) */
+@media (min-width: 1400px) and (max-width: 1999px) {
+    .sectionThree {
+        .wrapper {
+
+            .card-container {
+                gap: 6px;
+            }
+        }
+    }
+}
+
+/* Styles for screens 1500px and larger (e.g., desktops) */
+@media (min-width: 2000px) {}

@@ -20,11 +20,11 @@ function SectionThree() {
         </Col>
 
         <Row className='card-container'>
-          <LocationCard image={image1} />
-          <LocationCard image={image2} />
-          <LocationCard image={image3} />
-          <LocationCard image={image4} />
-          <LocationCard image={image5} />
+          <LocationCard image={image1} title="Kigali City" />
+          <LocationCard image={image2} title="Western Province" />
+          <LocationCard image={image3} title="Northern Province" />
+          <LocationCard image={image4} title="Eastern Province" />
+          <LocationCard image={image5} title="Southern Province" />
         </Row>
       </Row>
     </Row>
