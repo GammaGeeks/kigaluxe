@@ -13,6 +13,7 @@ const HomeCard = () => {
         style={{
           objectFit: 'cover',
         }}
+        className='img-fluid'
       />
       <Card.Body
         style={{ width: '60%' }}

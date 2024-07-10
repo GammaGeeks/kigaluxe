@@ -1,35 +1,33 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react'
+import { Row, Col } from 'react-bootstrap'
+import LocationCard from './LocationCard'
 
 import './index.scss'
 
+const image1 = require('../../../assets/location_one.png')
+const image2 = require('../../../assets/location_two.png')
+const image3 = require('../../../assets/location_three.png')
+const image4 = require('../../../assets/location_four.png')
+const image5 = require('../../../assets/location_four.png')
+
 function SectionThree() {
   return (
-    <div className='row sectionThree'>
-      <div className='row wrapper'>
-        <div className='col-lg-12 title'>
+    <Row className='sectionThree'>
+      <Row className='wrapper'>
+        <Col className='col-lg-12 title'>
           <h2 className='text-center'>We are available in the whole parts of Rwanda</h2>
-        </div>
+        </Col>
 
-        <div className='row card-container'>
-          <div className="card">
-            <img src={require('../../../assets/location_one.png')} alt='Image one' />
-          </div>
-          <div className="card">
-          <img src={require('../../../assets/location_two.png')} alt='Image two' />
-          </div>
-          <div className="card">
-            <img src={require('../../../assets/location_three.png')} alt='Image three' />
-          </div>
-          <div className="card">
-            <img src={require('../../../assets/location_four.png')} alt='Image four' />
-          </div>
-          <div className="card">
-            <img src={require('../../../assets/location_four.png')} alt='Image five' />
-          </div>
-        </div>
-      </div>
-    </div>
+        <Row className='card-container'>
+          <LocationCard image={image1} title="Kigali City" />
+          <LocationCard image={image2} title="Western Province" />
+          <LocationCard image={image3} title="Northern Province" />
+          <LocationCard image={image4} title="Eastern Province" />
+          <LocationCard image={image5} title="Southern Province" />
+        </Row>
+      </Row>
+    </Row>
   )
 }
 

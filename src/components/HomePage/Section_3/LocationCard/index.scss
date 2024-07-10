@@ -1,0 +1,73 @@
+@import '../../../../styles/_colors.scss';
+    
+.card-location {
+    // flex: 1; // Distribute available space equally among cards
+    // padding: 16px;
+    position: relative;
+    flex: 1 1 20%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 0 !important;
+    padding: 0 !important;
+    // max-width: calc(25% - 10px);
+    background-color: transparent;
+    // height: 100%;
+    border: none;
+    /* Other styling for individual cards */
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 30px;
+        box-shadow: $shadow-box-1;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        z-index: 5;
+        padding: 10px 20px;
+        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        background: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.2) 0,
+            rgba(0, 0, 0, 1)
+        );
+        bottom: 0px;
+        height: 40%;
+        border-radius: 0px 0px 30px 30px;
+
+        .text-center {
+            margin-top: 25px;
+            h4 {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 1.4rem;
+                font-weight: 700;
+                color: $white;
+                text-align: center;
+            }
+        }
+    }
+
+    .onHover {
+        background: linear-gradient(180deg, rgba(0, 217, 255, 0.353), #000);
+//         bottom: 0;
+//         content: "";
+        height: 100%;
+        border-radius: 30px 30px 30px 30px;
+//         left: 0;
+//         opacity: 0;
+//         position: absolute;
+//         right: 0;
+//         top: 0;
+        transition: all .3s cubic-bezier(.645,.045,.355,1);
+//         width: 100%;
+        z-index: 5;
+    }
+}
