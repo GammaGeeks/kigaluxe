@@ -2,11 +2,12 @@
 import React from 'react'
 import Navigation from '../../components/Navigation'
 import SectionOne from '../../components/HomePage/Section_1'
-import SectionTwo from '../../components/HomePage/Section_2'
 import Search from '../../components/HomePage/Search'
+import SectionTwo from '../../components/HomePage/Section_2'
+import SectionThree from '../../components/HomePage/Section_3'
+import SectionFour from '../../components/HomePage/Section_4'
 
 import './index.scss'
-import SectionThree from '../../components/HomePage/Section_3'
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
     <Search />
     <SectionTwo />
     <SectionThree />
+    <SectionFour />
   </div>
   )
 }
