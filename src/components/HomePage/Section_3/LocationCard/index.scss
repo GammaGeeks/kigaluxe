@@ -1,0 +1,18 @@
+@import '../../../../styles/_colors.scss';
+    
+.card-location {
+    // flex: 1; // Distribute available space equally among cards
+    // padding: 16px;
+    background-color: transparent;
+    // height: 100%;
+    border: none;
+    /* Other styling for individual cards */
+
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 30px;
+        box-shadow: $shadow-box-1;
+    }
+}

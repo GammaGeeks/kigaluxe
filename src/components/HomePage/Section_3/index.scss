@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 !important;
     background: $background-primary;
     padding: 40px 60px;
 
@@ -35,29 +36,11 @@
         
         .card-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: start;
-            gap: 24px;
-            width: 80%;
-            height: 70%;
+            justify-content: center;
+            align-items: center;
+            gap: 18px;
+            // width: 80%;
             padding: 40px;
-    
-            .card {
-                flex: 1; // Distribute available space equally among cards
-                // padding: 16px;
-                background-color: transparent;
-                height: 100%;
-                border: none;
-                /* Other styling for individual cards */
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    border-radius: 30px;
-                    box-shadow: $shadow-box-1;
-                }
-            }
         }
     }
 }
