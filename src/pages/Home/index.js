@@ -8,6 +8,7 @@ import SectionThree from '../../components/HomePage/Section_3'
 import SectionFour from '../../components/HomePage/Section_4'
 
 import './index.scss'
+import SectionFive from '../../components/HomePage/Section_5'
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
     <SectionTwo />
     <SectionThree />
     <SectionFour />
+    <SectionFive />
   </div>
   )
 }

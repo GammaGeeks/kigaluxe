@@ -1,0 +1,86 @@
+@import "../../../styles/_colors.scss";
+
+.sectionFive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 !important;
+    background-color: $background-primary;
+
+    .form-container {
+        margin-top: 60px;
+        background-image: url('../../../assets/homepage_form.jpg');
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        min-height: 70vh;
+        border-radius: 90px 90px 0 0;
+
+        .form-part {
+            background-color: $background-form;
+            border-radius: 20px;
+            margin-top: 20px;
+
+            .first-row {
+                margin-bottom: 20px;
+            }
+
+            .second-row {
+                margin-top: 20px;
+            }
+
+            .header-row {
+                margin-bottom: 20px;
+                margin-left: 3px;
+                .col-1 {
+                    background-color: $button-background;
+                    color: $text-color-two;
+                    padding-top: 5px;
+                }
+
+                .col-11 {
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 32px;
+                    font-weight: 600;
+                }
+            }
+
+            button {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 22px;
+                font-weight: 800;
+                color: $black;
+                box-shadow: $shadow-box-2;
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .sectionFive {
+        .form-container {
+            padding: 0 !important;
+            border-radius: 0 !important;
+
+            .card-form {
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .form-part {
+                margin-top: 0px !important;
+                background: none !important;
+
+                .header-row {
+                    .col-1 {
+                        display: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
