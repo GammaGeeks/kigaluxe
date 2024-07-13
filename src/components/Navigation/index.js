@@ -7,7 +7,6 @@ function Navigation() {
   const [navbar, setNavbar] = useState(false)
 
   const changeNavBackground = () => {
-    console.log(window.scrollY)
     if (window.scrollY >= 100) {
       setNavbar(true)
     } else {
@@ -18,7 +17,7 @@ function Navigation() {
   window.addEventListener('scroll', changeNavBackground)
 
   return (
-    <div className={`nav ${navbar ? 'active' : ''}`}>
+    <div className={`naV ${navbar ? 'active' : ''}`}>
       <div className='navLogo'>
         <img src={require('../../assets/logo.png')} alt='logo' />
       </div>

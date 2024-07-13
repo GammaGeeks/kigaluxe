@@ -1,15 +1,15 @@
 import React from 'react'
-import { Row, Col, Form, FloatingLabel, Button, FormSelect } from 'react-bootstrap'
+import { Row, Col, Form, Button } from 'react-bootstrap'
 
 import './index.scss'
 import types from '../../../data/types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import FormInput from '../../Form/FormInput'
+import FormSelect from '../../Form/FormSelect'
 
 
 function SectionFive() {
-  console.log(types);
   return (
     <Row className='sectionFive'>
       <Row className='form-container p-5 justify-content-center align-content-center'>
@@ -48,23 +48,20 @@ function SectionFive() {
               />
               <Row className='second-row'>
                 <Col>
-                  <FormInput
-                    name='Type'
-                    label='Select Type'
-                  />
                   <FormSelect
                     name='Type'
-                    label='Select Type'
+                    label='Select Property Type'
                     options={types}
                   />
-                  <FloatingLabel controlId="floatingType" label="Type">
-                    <Form.Control type="text" placeholder="Firstname" />
-                  </FloatingLabel>
                 </Col>
                 <Col>
-                  <FloatingLabel controlId="floatingPrice" label="Price">
-                    <Form.Control type="text" placeholder="Type in your price" />
-                  </FloatingLabel>
+                  <FormInput
+                    newClass='mb-3'
+                    name="Price"
+                    type='tel'
+                    label={`Estimate the property's Price`}
+                    placeholder="xxxxxxxx $"
+                  />
                 </Col>
               </Row>
               <div className="d-grid my-3">
@@ -73,7 +70,7 @@ function SectionFive() {
             </Form>
           </Row>
         </Col>
-        <Col md={6} sm={12} className='justify-content-center align-content-around'>
+        <Col md={6} sm={12} className='text-part justify-content-center align-content-around'>
           <h3>Buy or Sell Your Property with KigaluXe.com</h3>
           <p>With Kigaluxe real estate website, you can promote your land, property & real estate projects.</p>
           <Button variant='tertiary-color'>View Properties</Button>

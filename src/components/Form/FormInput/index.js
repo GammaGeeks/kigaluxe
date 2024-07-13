@@ -9,8 +9,6 @@ function FormInput({
   newClass = '',
   label = null,
 }) {
-  console.log(placeholder);
-  console.log(newClass);
   return (
     <FloatingLabel className={newClass} controlId={`floating${name}`} label={label}>
       <Form.Control type={type} placeholder={`${placeholder ? placeholder : name}`} />
