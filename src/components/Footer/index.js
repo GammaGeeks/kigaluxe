@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faFacebook, faInstagram, faTiktok, faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Container, Row } from 'react-bootstrap'
+import moment from 'moment'
+
 import './index.scss'
 
 function FooterPart() {
@@ -14,7 +16,7 @@ function FooterPart() {
             <a href="/" className="d-flex align-items-center mb-3 link-dark text-decoration-none">
               <img className="bi me-2" src={require('../../assets/logo.png')} alt="Logo"/>
             </a>
-            <p className="text-muted">&copy; 2022</p>
+            <p className="text-muted">&copy; {moment.format('YYYY')} KigaluXe, Ltd. All rights reserved.</p>
           </div>
 
           <div className="col mb-3">
@@ -44,11 +46,11 @@ function FooterPart() {
           </div> */}
 
           <div className="col mb-3">
-            <h5>Social Media</h5>
-            <ul className="nav flex-row gap-3">
-              <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted"><FontAwesomeIcon icon={faTwitter} size='3x' color='white'/></a></li>
-              <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted"><FontAwesomeIcon icon={faTwitter} size='3x' color='white' /></a></li>
-              <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted"><FontAwesomeIcon icon={faTwitter} size='3x' color='white' /></a></li>
+            <ul className="nav flex-row justify-content-center align-content-center gap-3">
+              <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted"><FontAwesomeIcon icon={faInstagram} size='3x' color='#F9F871'/></a></li>
+              <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted"><FontAwesomeIcon icon={faFacebook} size='3x' color='#F9F871' /></a></li>
+              <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted"><FontAwesomeIcon icon={faTiktok} size='3x' color='#F9F871' /></a></li>
+              <li className="nav-item mb-2"><a href="#" className="nav-link p-0 text-muted"><FontAwesomeIcon icon={faTwitter} size='3x' color='#F9F871' /></a></li>
             </ul>
           </div>
         </Row>
