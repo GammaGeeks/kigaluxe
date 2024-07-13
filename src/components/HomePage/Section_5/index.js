@@ -59,7 +59,7 @@ function SectionFive() {
                     newClass='mb-3'
                     name="Price"
                     type='tel'
-                    label={`Estimate the property's Price`}
+                    label={`Estimate the Price`}
                     placeholder="xxxxxxxx $"
                   />
                 </Col>

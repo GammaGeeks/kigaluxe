@@ -1,6 +1,8 @@
 import React from 'react'
 import { FloatingLabel, Form } from "react-bootstrap"
 
+import './index.scss'
+
 function FormInput({
   name,
   type = 'text',
@@ -10,7 +12,7 @@ function FormInput({
   label = null,
 }) {
   return (
-    <FloatingLabel className={newClass} controlId={`floating${name}`} label={label}>
+    <FloatingLabel className={`myInput ${newClass}`} controlId={`floating${name}`} label={label}>
       <Form.Control type={type} placeholder={`${placeholder ? placeholder : name}`} />
     </FloatingLabel>
   )

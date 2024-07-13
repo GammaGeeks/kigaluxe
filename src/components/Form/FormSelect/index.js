@@ -1,5 +1,7 @@
 import {FloatingLabel, Form} from 'react-bootstrap';
 
+import './index.scss'
+
 function FormSelect({
     name,
     options = [],
@@ -10,9 +12,9 @@ function FormSelect({
     console.log(newClass);
     console.log(label);
     return (
-      <FloatingLabel className={`newClass`} controlId="floatingSelect" label={label}>
+      <FloatingLabel className={`mySelect ${newClass}`} controlId="floatingSelect" label={label}>
         <Form.Select aria-label="Floating label select example">
-          <option>Open this select menu</option>
+          <option></option>
           {options.map((v, k) => (
             <option key={k} value={v}>
               {v}
