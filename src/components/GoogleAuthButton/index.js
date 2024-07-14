@@ -4,7 +4,7 @@ import { gapi } from 'gapi-script'
 
 import './index.scss'
 
-const clientId = '306724767118-cova922dd6jfk6d0vetn9kuvko0a2en7.apps.googleusercontent.com'
+const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID
 
 function GoogleAuthButton({text}) {
   useEffect(() => {

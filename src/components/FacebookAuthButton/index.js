@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
 import './index.scss'
+const appId = process.env.REACT_APP_FACEBOOK_APP_ID
 
 function FacebookAuthButton({text}) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -38,7 +39,7 @@ function FacebookAuthButton({text}) {
     )
     fbContent = (
       <FacebookLogin
-        appId='1184343992609207'
+        appId={appId}
         autoLoad={true}
         fields='name,email,picture'
         onClick={componentClicked}
@@ -53,7 +54,7 @@ function FacebookAuthButton({text}) {
   } else {
     fbContent = (
       <FacebookLogin
-        appId='1184343992609207'
+        appId={appId}
         autoLoad={true}
         fields='name,email,picture'
         onClick={componentClicked}
