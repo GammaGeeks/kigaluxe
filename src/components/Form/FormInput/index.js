@@ -13,7 +13,7 @@ function FormInput({
 }) {
   return (
     <FloatingLabel className={`myInput ${newClass}`} controlId={`floating${name}`} label={label}>
-      <Form.Control type={type} placeholder={`${placeholder ? placeholder : name}`} />
+      <Form.Control type={type} placeholder={`${placeholder ? placeholder : value}`} />
     </FloatingLabel>
   )
 }
