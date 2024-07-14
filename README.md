@@ -1,70 +1,132 @@
-# Getting Started with Create React App
+# KigaluXe Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+KigaluXe is a real estate web app that facilitates users to rent and buy properties online. The app features a unique referral system allowing users to share properties and earn commissions on their shares.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Project Overview](#project-overview)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Installation](#installation)
+- [Running the Project](#running-the-project)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-### `yarn start`
+## Project Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+KigaluXe's frontend is designed to provide a seamless and intuitive user experience for browsing, renting, and buying properties. Users can also share properties on social media and earn commissions for successful referrals.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `yarn test`
+- **Framework**: React
+- **State Management**: Redux
+- **Styling**: Tailwind CSS
+- **Routing**: React Router
+- **API**: Axios
+- **Build Tool**: Webpack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `yarn build`
+- User Authentication
+- Property Search and Filters
+- Property Details Page
+- User Dashboard
+- Referral System with Commission Tracking
+- Responsive Design
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Ensure you have the following installed on your machine:
 
-### `yarn eject`
+- Node.js (v14 or later)
+- npm (v6 or later) or yarn (v1.22 or later)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Steps
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   git clone https://github.com/your-username/kigaluxe-frontend.git
+   cd kigaluxe-frontend
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Install dependencies:
 
-## Learn More
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Running the Project
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To start the development server, run:
 
-### Code Splitting
+```bash
+npm start
+# or
+yarn start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This will run the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Analyzing the Bundle Size
+## Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+kigaluxe-frontend/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── redux/
+│   ├── services/
+│   ├── styles/
+│   ├── utils/
+│   ├── App.js
+│   ├── index.js
+│   └── ...
+├── .gitignore
+├── package.json
+├── README.md
+└── ...
+```
 
-### Making a Progressive Web App
+- **public/**: Contains the public assets and the main HTML file.
+- **src/assets/**: Static assets like images and fonts.
+- **src/components/**: Reusable React components.
+- **src/pages/**: Page components for different routes.
+- **src/redux/**: Redux setup including actions, reducers, and store configuration.
+- **src/services/**: API calls and external service integrations.
+- **src/styles/**: Global styles and Tailwind CSS configuration.
+- **src/utils/**: Utility functions and helpers.
+- **App.js**: Main app component.
+- **index.js**: Entry point for the React application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contributing
 
-### Advanced Configuration
+We welcome contributions! Please follow these steps to contribute:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch-name`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch-name`).
+6. Create a new Pull Request.
 
-### Deployment
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-### `yarn build` fails to minify
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+For any inquiries or issues, please contact us at:
+
+- **Email**: support@kigaluxe.com
+- **GitHub**: [https://github.com/GammaGeeks/kigaluxe](https://github.com/GammaGeeks/kigaluxe)
