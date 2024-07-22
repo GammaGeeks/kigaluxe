@@ -23,14 +23,16 @@ function SignIn() {
             Sign Up
           </Button>
         </Col>
-        <Col className='form-part-sign-in d-flex flex-column justify-content-center align-items-center gap-4'>
-          <div className='logo-container d-flex justify-content-center'>
-            <img src={require('../../assets/logo.png')} alt='logo' />
-          </div>
-          <h2>Create an Account</h2>
+        <Col className='form-part-sign-in d-flex flex-column justify-content-center align-items-center gap-2'>
+          <Row>
+            <div className='d-flex flex-column justify-content-center align-items-center gap-3'>
+              <img className='logo-container' src={require('../../assets/logo/png/color_logo_no_background.png')} alt='logo' />
+              <h2 class>Create an Account</h2>
+            </div>
+          </Row>
 
           <Row>
-            <Col className='d-flex justify-content-center gap-3'>
+            <Col className='d-flex justify-content-center align-items-center gap-2'>
               <FacebookAuthButton text='Sign in with Facebook' />
               <GoogleAuthButton text='Sign in with Google' />
             </Col>
@@ -40,9 +42,10 @@ function SignIn() {
               <span className='or'>or</span>
             </Col>
           </Row>
+          <Row style={{width: '40%'}}>
           <Form>
-            <Row className='d-flex justify-content-center align-items-center gap-3'>
-              <Col className='d-flex'>
+            <Row className='d-flex justify-content-center align-items-center gap-3 mb-1'>
+              <Col className='d-grid'>
                 <FormInput
                   name='Email'
                   placeholder='Email Address'
@@ -51,8 +54,8 @@ function SignIn() {
                 />
               </Col>
             </Row>
-            <Row className='d-flex justify-content-center align-items-center gap-3'>
-              <Col className='d-flex'>
+            <Row className='d-flex justify-content-center align-items-center gap-3 mt-1'>
+              <Col className='d-grid'>
                 <FormInput
                   name='Password'
                   placeholder='Password'
@@ -69,6 +72,7 @@ function SignIn() {
               </Col>
             </Row>
           </Form>
+          </Row>
         </Col>
       </Row>
     </Container>
