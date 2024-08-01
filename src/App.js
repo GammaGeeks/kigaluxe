@@ -4,7 +4,8 @@ import Layout from './components/Layouts/Pages'
 import Auth from './components/Layouts/Auth'
 import Home from './pages/Home'
 import SignUp from './pages/SignUp'
-import SignIn from './pages/SignIn';
+import SignIn from './pages/SignIn'
+import Confirm from './pages/Confirm'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/auth" element={<Auth/>}>
           <Route path="sign_up" element={<SignUp />} />
           <Route path="sign_in" element={<SignIn />} />
+          <Route path="confirm" element={<Confirm />} />
         </Route>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
