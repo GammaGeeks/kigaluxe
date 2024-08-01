@@ -9,7 +9,7 @@ import GoogleAuthButton from '../../components/GoogleAuthButton'
 import './index.scss'
 import FormInput from '../../components/Form/FormInput'
 import FormCheckPart from '../../components/Form/FormCheck'
-// import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { userAction } from '../../redux/actions';
 import { RingLoader } from '../../components/Loaders'
 import capitalize from '../../utils/capitalize'
@@ -49,7 +49,7 @@ const SignUpSchema = Yup.object().shape({
 function SinUp() {
   const dispatch = useDispatch()
   const { signup } = useSelector((state) => state.user)
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const signupErrors = signup.errors;
   const { loading, message } = signup;
@@ -90,7 +90,7 @@ function SinUp() {
             phone,
             gender,
             password
-        }));
+        }).then(() => navigate('/auth/confirm')));
     }
   });
 
@@ -126,7 +126,7 @@ function SinUp() {
             }
 
           </Row>
-          <Form  onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit}>
             <Row className='d-flex justify-content-center align-items-center gap-3'>
               <Col>
                 <FormInput
@@ -267,7 +267,7 @@ function SinUp() {
               </Col>
             </Row>
             <Row>
-              <Col className='d-grid my-5'>
+              <Col className='d-grid my-5 justify-content-center'>
                 {
                   loading ? (
                     <RingLoader height="80" width="80" />
@@ -286,7 +286,7 @@ function SinUp() {
           <p className='px-5 text-center'>
             Welcome to the world of KigaluXe Interior Design, where your dream living space becomes a reality.
           </p>
-          <Button variant='main-color'  type="submit" className='btn-sign-in'>
+          <Button variant='main-color'  onClick={() => navigate('/auth/sign_in')} className='btn-sign-in'>
             Sign In
           </Button>
         </Col>

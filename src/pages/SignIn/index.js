@@ -1,14 +1,51 @@
 import React from 'react'
 import { Container, Col, Row, Form, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import { useDispatch, useSelector } from "react-redux"
+import { userAction } from '../../redux/actions';
 import FacebookAuthButton from '../../components/FacebookAuthButton'
 import GoogleAuthButton from '../../components/GoogleAuthButton'
 import FormInput from '../../components/Form/FormInput'
+import { RingLoader } from '../../components/Loaders'
+import isObject from '../../utils/isObject'
+import looper from '../../utils/loopObject'
 
 import './index.scss'
 
+
+const LoginSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Required"),
+  password: Yup.string()
+    .min(7, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+});
+
+
 function SignIn() {
   const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const { login } = useSelector((state) => state.user);
+  const loginErrors = login.errors;
+  const { loading, message } = login;
+
+  const {
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    values,
+    errors,
+    } = useFormik({
+      validationSchema: LoginSchema,
+      initialValues: { email: '', password: '' },
+      onSubmit: (values) => {
+        console.log("Login", values)
+        dispatch(userAction.login(values)).then(() => navigate('/'));
+    },
+  });
+
 
   return (
     <Container fluid>
@@ -41,34 +78,66 @@ function SignIn() {
             <Col className='d-flex justify-content-center align-items-center'>
               <span className='or'>or</span>
             </Col>
+            <Col className='d-flex justify-content-center align-items-center'>
+              {
+                message ? (<p className="text-success text-center"><strong>{message}</strong></p>) : ''
+              }
+              {
+                loginErrors ? (
+                  isObject(loginErrors) ? (
+                    looper(loginErrors).map(item => item)
+                  ) : (<p className="text-danger text-center"><strong>{loginErrors}</strong></p>)
+                ) : ''
+              }
+              {
+                loginErrors ? (
+                  <p className="text-danger text-center"><strong>{loginErrors}</strong></p>
+                ) : ''
+              }
+            </Col>
+
           </Row>
           <Row style={{width: '40%'}}>
-          <Form>
+          <Form onSubmit={handleSubmit}>
             <Row className='d-flex justify-content-center align-items-center gap-3 mb-1'>
               <Col className='d-grid'>
                 <FormInput
-                  name='Email'
+                  name='email'
                   placeholder='Email Address'
                   label='Email Address'
                   type='email'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
                 />
+                {errors.email ? <p className="error-text text-center text-danger font-italic">{errors.email}</p> : ''}
               </Col>
             </Row>
             <Row className='d-flex justify-content-center align-items-center gap-3 mt-1'>
               <Col className='d-grid'>
                 <FormInput
-                  name='Password'
+                  name='password'
                   placeholder='Password'
                   label='Password'
                   type='password'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.password}
                 />
+                {errors.password? <p className="error-text text-center text-danger font-italic">{errors.password}</p> : ''}
               </Col>
             </Row>
             <Row>
               <Col className='d-grid my-5'>
-                <Button variant='main-color' type='submit' className='btn-sign-in'>
-                  Sign In
-                </Button>
+              {
+                  loading ? (
+                    <RingLoader height="80" width="80" />
+                  ) : (
+                    <Button variant='main-color' type='submit' className='btn-sign-in'>
+                      Sign In
+                    </Button>
+                  )
+                }
               </Col>
             </Row>
           </Form>
