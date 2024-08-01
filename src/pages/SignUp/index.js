@@ -90,7 +90,7 @@ function SinUp() {
             phone,
             gender,
             password
-        }).then(() => navigate('/auth/confirm')));
+        })).then(() => navigate('/auth/confirm'));
     }
   });
 
