@@ -1,15 +1,99 @@
 import React from 'react'
 import { Container, Col, Row, Form, Button } from 'react-bootstrap'
+import { useSelector, useDispatch } from 'react-redux'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
 import FacebookAuthButton from '../../components/FacebookAuthButton'
 import GoogleAuthButton from '../../components/GoogleAuthButton'
 
 import './index.scss'
 import FormInput from '../../components/Form/FormInput'
 import FormCheckPart from '../../components/Form/FormCheck'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
+import { userAction } from '../../redux/actions';
+import { RingLoader } from '../../components/Loaders'
+import capitalize from '../../utils/capitalize'
+import isObject from '../../utils/isObject'
+import looper from '../../utils/loopObject'
+
+
+const genderOptions = ["male", "female", "not specified"]
+
+const SignUpSchema = Yup.object().shape({
+  email: Yup.string().email("Invalid email").required("Your email is equired"),
+  firstname: Yup.string().required("Your firstname is required").label('Firstname'),
+  lastname: Yup.string().required("Your lastname is required").label('Lastname'),
+  phone: Yup.number().typeError("That doesn't look like a phone number")
+    .positive("A phone number can't start with a minus")
+    .integer("A phone number can't include a decimal point")
+    .min(10)
+    .required('A phone number is required'),
+  // gender: Yup.string()
+  //   .oneOf(genderOptions, 'Please select a valid option')
+  //   .required('Radio selection is required'),
+  dob: Yup.date()
+    .required('Date of Birth is required')
+    .min(new Date(1930, 1, 1), 'Date of Birth must be after January 1, 2000')
+    .max(new Date(), 'Date cannot be in the future').label('Date of Birth'),
+  address: Yup.string().required("Your address is required").label('address'),
+  password: Yup.string()
+    .min(4, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+  passwordConfirmation: Yup.string()
+    .equals([Yup.ref("password")], "Passwords don't match")
+    .required('Required'),
+});
+
 
 function SinUp() {
-  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { signup } = useSelector((state) => state.user)
+  // const navigate = useNavigate()
+
+  const signupErrors = signup.errors;
+  const { loading, message } = signup;
+
+
+  // Using Formik
+  const {
+    handleChange,
+    handleBlur,
+    handleSubmit,
+    errors,
+    values,
+  } = useFormik({
+    validationSchema: SignUpSchema,
+    initialValues: {
+      firstname: '',
+      email: '',
+      phone: '',
+      lastname: '',
+      gender: '',
+      password: '',
+      passwordConfirmation: ''
+    },
+    onSubmit: (values) => {
+        console.log(values)
+        const {
+            firstname,
+            lastname,
+            email,
+            phone,
+            gender,
+            password
+        } = values
+        dispatch(userAction.signup({
+            firstname,
+            lastname,
+            email,
+            phone,
+            gender,
+            password
+        }));
+    }
+  });
+
 
   return (
     <Container fluid>
@@ -30,98 +114,169 @@ function SinUp() {
             <Col className='d-flex justify-content-center align-items-center'>
               <span className='or'>or</span>
             </Col>
+            {
+              message ? (<p className="text-success text-center"><strong>{message}</strong></p>) : ''
+            }
+            {
+              signupErrors ? (
+                isObject(signupErrors) ? (
+                  looper(signupErrors).map(item => item)
+                ) : (<p className="text-danger text-center"><strong>{signupErrors}</strong></p>)
+              ) : ''
+            }
+
           </Row>
-          <Form>
+          <Form  onSubmit={handleSubmit}>
             <Row className='d-flex justify-content-center align-items-center gap-3'>
               <Col>
                 <FormInput
-                  name='FisrtName'
+                  name='firstname'
                   placeholder='Firstname'
                   label='Firstname'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.firstname}
                 />
+                {errors.firstname ? <p className="error-text text-center text-danger font-italic">{errors.firstname}</p> : ''}
               </Col>
               <Col>
                 <FormInput
-                  name='LastName'
+                  name='lastname'
                   placeholder='Lastname'
                   label='Lastname'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.lastname}
                 />
+              {errors.lastname ? <p className="error-text text-center text-danger font-italic">{errors.lastname}</p> : ''}
               </Col>
             </Row>
             <Row className='d-flex justify-content-center align-items-center gap-3'>
               <Col>
                 <FormInput
-                  name='Email'
+                  name='email'
                   placeholder='Email Address'
                   label='Email Address'
                   type='email'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.email}
                 />
+                {errors.email ? <p className="error-text text-center text-danger font-italic">{errors.email}</p> : ''}
               </Col>
               <Col>
                 <FormInput
-                  name='Phone'
+                  name='phone'
                   placeholder='Phone Number'
                   label='Phone Number'
                   type='tel'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.phone}
                 />
+                {errors.phone ? <p className="error-text text-center text-danger font-italic">{errors.phone}</p> : ''}
               </Col>
             </Row>
             <Row className='d-flex justify-content-center align-items-center gap-3'>
               <div className="d-flex justify-content-evenly mt-4">
-                <FormCheckPart
-                  inline
-                  type='radio'
-                  label='Male'
-                  name="gender"
-                />
-                <FormCheckPart
+                {
+                  genderOptions.map(option => (
+                    <FormCheckPart
+                      inline
+                      key={option}
+                      type='radio'
+                      label={capitalize(option)}
+                      checked={values.gender === option}
+                      name="gender"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={option}
+                    />
+                  ))
+                }
+                {/* <FormCheckPart
                   inline
                   type='radio'
                   label='Female'
                   name="gender"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value='female'
                 />
+                <FormCheckPart
+                  inline
+                  type='radio'
+                  label='Not specified'
+                  name="gender"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value='none'
+                /> */}
               </div>
+              {errors.gender ? <p className="error-text text-center text-danger font-italic">{errors.gender}</p> : ''}
             </Row>
             <Row className='d-flex justify-content-center align-items-center gap-3'>
               <Col>
                 <FormInput
-                  name='DOB'
+                  name='dob'
                   placeholder='Date of Birth'
                   label='Date of Birth'
                   type='date'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.dob}
                 />
+                {errors.dob ? <p className="error-text text-center text-danger font-italic">{errors.dob}</p> : ''}
               </Col>
               <Col>
                 <FormInput
-                  name='Address'
+                  name='address'
                   placeholder='Fill Address'
                   label='Fill Address'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.address}
                 />
+                {errors.address ? <p className="error-text text-center text-danger font-italic">{errors.address}</p> : ''}
               </Col>
             </Row>
             <Row className='d-flex justify-content-center align-items-center gap-3'>
               <Col>
                 <FormInput
-                  name='Password'
+                  name='password'
                   placeholder='Password'
                   label='Password'
                   type='password'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.password}
                 />
+                {errors.password ? <p className="error-text text-center text-danger font-italic">{errors.password}</p> : ''}
               </Col>
               <Col>
                 <FormInput
-                  name='Confirm_password'
+                  name='passwordConfirmation'
                   placeholder='Confirm Password'
                   label='Confirm Password'
                   type='password'
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.passwordConfirmation}
                 />
+                {errors.passwordConfirmation ? <p className="error-text text-center text-danger font-italic">{errors.passwordConfirmation}</p> : ''}
               </Col>
             </Row>
             <Row>
               <Col className='d-grid my-5'>
-                <Button variant='main-color' type='submit' className='btn-sign-up'>
-                  Sign Up
-                </Button>
+                {
+                  loading ? (
+                    <RingLoader height="80" width="80" />
+                  ) : (
+                    <Button variant='main-color' type='submit' className='btn-sign-up'>
+                      Sign Up
+                    </Button>
+                  )
+                }
               </Col>
             </Row>
           </Form>
@@ -131,8 +286,7 @@ function SinUp() {
           <p className='px-5 text-center'>
             Welcome to the world of KigaluXe Interior Design, where your dream living space becomes a reality.
           </p>
-          
-          <Button variant='main-color' onClick={() => navigate('/auth/sign_in')} className='btn-sign-in'>
+          <Button variant='main-color'  type="submit" className='btn-sign-in'>
             Sign In
           </Button>
         </Col>

@@ -6,10 +6,13 @@ import './index.scss'
 function FormInput({
   name,
   type,
-  value = null,
+  value,
   placeholder = null,
   inline = false,
   label = null,
+  onChange = null,
+  onBlur = null,
+  checked = null
 }) {
   return (
     <Form.Check
@@ -18,6 +21,10 @@ function FormInput({
       type={type}
       label={label}
       name={name}
+      checked
+      onChange={onChange}
+      onBlur={onBlur}
+      value
     />
   )
 }
