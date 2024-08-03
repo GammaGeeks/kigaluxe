@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Col, Row, Form, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
@@ -46,6 +46,12 @@ function SignIn() {
         // .then(() => navigate('/'));
     },
   });
+
+  useEffect(() => {
+    if (message) {
+      navigate('/')
+    }
+  }, [message, navigate])
 
 
   return (

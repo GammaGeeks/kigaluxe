@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Col, Row, Form, Button } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { useFormik } from 'formik'
@@ -89,10 +89,14 @@ function SinUp() {
             gender,
             password
         }))
-        // .then(() => navigate('/auth/confirm'));
     }
   });
 
+  useEffect(() => {
+    if (message) {
+      navigate('/auth/confirm')
+    }
+  }, [message, navigate])
 
   return (
     <Container fluid>

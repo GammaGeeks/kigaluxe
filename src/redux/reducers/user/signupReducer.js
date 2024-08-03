@@ -29,7 +29,6 @@ export default (state, { type, payload }) => {
       //   signup: { loading: false, message: payload.message, error: '' },
       //   profile: {...payload.user}
       // };
-      console.log("SUCCESS payload", payload)
       return produce(state, (draft) => {
         draft.loading = false
         draft.message = payload.message
@@ -45,7 +44,6 @@ export default (state, { type, payload }) => {
       //   signup: { loading: false, message: '', error: payload.error },
       //   error: payload.error
       // };
-      console.log("FAILURE payload", payload)
       return produce(state, (draft) => {
         draft.loading = false
         draft.signup.loading = false

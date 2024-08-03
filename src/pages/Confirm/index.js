@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Row, Col, Button, Form } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import {ReactComponent as Icon} from '../../assets/svg/envelope.svg'
 import FormInput from '../../components/Form/FormInput'
 import * as Yup from 'yup'
@@ -16,6 +17,7 @@ const ConfirmSchema = Yup.object().shape({
 
 function Confirm() {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const { confirm } = useSelector((state) => state.user)
 
   const { loading, message, error } = confirm
@@ -50,6 +52,12 @@ function Confirm() {
         // })).then(() => navigate('/auth/confirm'));
     }
   });
+
+  useEffect(() => {
+    if (message) {
+      navigate('/auth/sign_in')
+    }
+  }, [message, navigate])
   
   return (
     <Container fluid>
