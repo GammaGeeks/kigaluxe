@@ -1,6 +1,7 @@
 import login from './login';
 import signup from './signup';
 import logout from './logout';
+import confirm from './confirm'
 // import fetchUser from './fetchUser';
 // import assignUserRole from './assignUserRole';
 // import fetchUserById from './fetchUserById';
@@ -12,6 +13,7 @@ export {
   login,
   signup,
   logout,
+  confirm,
   // fetchUser,
   // assignUserRole,
   // fetchUserById,

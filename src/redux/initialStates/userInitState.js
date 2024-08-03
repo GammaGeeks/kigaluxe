@@ -1,30 +1,35 @@
 const userInitialState = {
   token: '',
+  loading: false,
+  message: '',
+  error: '',
+  profile: {},
   login: {
     loading: false,
-    user: {},
+    // user: {},
     message: '',
-    errors: ''
+    error: ''
+  },
+  confirm: {
+    loading: false,
+    message: '',
+    error: ''
   },
   signup: {
     loading: false,
     user: {},
     message: '',
-    errors: ''
+    error: ''
   },
   logout: {
     loading: false,
     message: '',
-    errors: ''
+    error: ''
   },
-  loading: false,
-  message: '',
-  profile: {},
-  errors: '',
   getUser: {
     loading: false,
     message: '',
-    errors: ''
+    error: ''
   },
 };
 export default userInitialState;
