@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Row, Col, Button, Form } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import {ReactComponent as Icon} from '../../assets/svg/envelope.svg'
 import FormInput from '../../components/Form/FormInput'
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
+import { useDispatch, useSelector } from 'react-redux'
+import { userAction } from '../../redux/actions'
+import capitalize from '../../utils/capitalize'
+import { RingLoader } from '../../components/Loaders'
 
 const ConfirmSchema = Yup.object().shape({
   code: Yup.string().required('Required').min(6),
@@ -11,6 +16,12 @@ const ConfirmSchema = Yup.object().shape({
 
 
 function Confirm() {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { confirm } = useSelector((state) => state.user)
+
+  const { loading, message, error } = confirm
+
   const {
     handleChange,
     handleBlur,
@@ -28,6 +39,9 @@ function Confirm() {
             // eslint-disable-next-line no-unused-vars
             code
         } = values
+        dispatch(userAction.confirm({
+          code: code
+        }))
         // dispatch(userAction.signup({
         //     firstname,
         //     lastname,
@@ -38,6 +52,12 @@ function Confirm() {
         // })).then(() => navigate('/auth/confirm'));
     }
   });
+
+  useEffect(() => {
+    if (message) {
+      navigate('/auth/sign_in')
+    }
+  }, [message, navigate])
   
   return (
     <Container fluid>
@@ -49,6 +69,15 @@ function Confirm() {
           <h1>Confirm your email</h1>
           <h3>Hi, firstname</h3>
           <p>Thank you for signing up with KigaluXe. Please confirm your email address <br />by filling the code sent to your email:</p>
+          {
+            message ? (<p className="text-success text-center"><strong>{capitalize(message)}</strong></p>) : ''
+          }
+            
+          {
+            error ? (
+              <p className="text-danger text-center"><strong>{capitalize(error)}</strong></p>
+            ) : ''
+          }
           <Form onSubmit={handleSubmit}>
             <FormInput
               name="code"
@@ -58,7 +87,14 @@ function Confirm() {
               value={values.code}
             />
             {errors.code ? <p className="error-text text-center text-danger font-italic">{errors.code}</p> : ''}
-            <Button variant='primary'>Confirm</Button>
+            
+            {
+              loading ? (
+                <RingLoader height="80" width="80" />
+              ) : (
+                <Button style={{width: '100%'}} variant='main-color' type='submit'>Confirm</Button>
+            )
+            }
           </Form>
         </Col>
       </Row>

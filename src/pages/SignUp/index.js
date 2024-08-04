@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Col, Row, Form, Button } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux'
 import { useFormik } from 'formik'
@@ -9,12 +9,12 @@ import GoogleAuthButton from '../../components/GoogleAuthButton'
 import './index.scss'
 import FormInput from '../../components/Form/FormInput'
 import FormCheckPart from '../../components/Form/FormCheck'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { userAction } from '../../redux/actions';
 import { RingLoader } from '../../components/Loaders'
 import capitalize from '../../utils/capitalize'
-import isObject from '../../utils/isObject'
-import looper from '../../utils/loopObject'
+// import isObject from '../../utils/isObject'
+// import looper from '../../utils/loopObject'
 
 
 const genderOptions = ["male", "female", "not specified"]
@@ -50,9 +50,8 @@ function SinUp() {
   const dispatch = useDispatch()
   const { signup } = useSelector((state) => state.user)
   const navigate = useNavigate()
-
-  const signupErrors = signup.errors;
-  const { loading, message } = signup;
+  const { loading, message, error } = signup;
+  // const token = localStorage.getItem('token')
 
 
   // Using Formik
@@ -90,10 +89,15 @@ function SinUp() {
             phone,
             gender,
             password
-        })).then(() => navigate('/auth/confirm'));
+        }))
     }
   });
 
+  useEffect(() => {
+    if (message) {
+      navigate('/auth/confirm')
+    }
+  }, [message, navigate])
 
   return (
     <Container fluid>
@@ -115,13 +119,20 @@ function SinUp() {
               <span className='or'>or</span>
             </Col>
             {
-              message ? (<p className="text-success text-center"><strong>{message}</strong></p>) : ''
+              message ? (
+              <p className="text-success text-center">
+                <strong>{capitalize(message)}</strong>
+                <br />
+                <Link to='/auth/confirm'>Please confirm your email address</Link>
+              </p>) : ''
             }
+            {/* {
+              signup.errors ? (<p className="text-danger text-center"><strong>{signup.errors}</strong></p>) : ""
+            } */}
+            
             {
-              signupErrors ? (
-                isObject(signupErrors) ? (
-                  looper(signupErrors).map(item => item)
-                ) : (<p className="text-danger text-center"><strong>{signupErrors}</strong></p>)
+              error ? (
+                <p className="text-danger text-center"><strong>{capitalize(error)}</strong></p>
               ) : ''
             }
 
@@ -267,7 +278,7 @@ function SinUp() {
               </Col>
             </Row>
             <Row>
-              <Col className='d-grid my-5 justify-content-center'>
+              <Col className='d-grid my-5'>
                 {
                   loading ? (
                     <RingLoader height="80" width="80" />

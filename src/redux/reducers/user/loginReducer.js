@@ -1,35 +1,39 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { userActionTypes } from '../../actionTypes';
+import { produce } from 'immer'
 
 export default (state, { type, payload }) => {
   switch (type) {
     case userActionTypes.LOGIN_USER_START:
-      return {
-        ...state,
-        login: { ...state.login, message: '', loading: true, errors: '' }
-      };
-    case userActionTypes.LOGIN_USER_END:
-      return {
-        ...state,
-        login: { ...state.login, loading: false },
-        profile: { ...state.profile }
-      };
+      return produce(state, (draft) => {
+        draft.loading = true;
+        draft.login.loading = true;
+        draft.login.message = '';
+        draft.login.error = '';
+      })
     case userActionTypes.LOGIN_USER_SUCCESS:
-      localStorage.user = JSON.stringify(payload.data.userData);
-      localStorage.token = payload.data.token;
-      return {
-        ...state,
-        token: {...payload.data.token},
-        loading: false,
-        message: payload.message,
-        login: { loading: false, message: payload.message, errors: '' },
-        profile: {...payload.data.userData}
-      };
+      localStorage.token = payload.token;
+      return produce(state, (draft) => {
+        draft.loading = false
+        draft.message = payload.message
+        draft.token = payload.token
+        draft.user = payload.user
+        draft.login.loading = false
+        draft.login.message = payload.message
+        draft.login.error = ''
+      })
     case userActionTypes.LOGIN_USER_FAILURE:
-      return {
-        ...state,
-        login: { loading: false, message: '', errors: payload.error }
-      };
+      return produce(state, (draft) => {
+        draft.loading = false
+        draft.login.loading = false
+        draft.login.message = ''
+        draft.login.error = payload.error
+      })
+    case userActionTypes.LOGIN_USER_END:
+      return produce(state, (draft) => {
+        draft.loading = false
+        draft.login.loading = false
+      })
     default:
       return null;
   }

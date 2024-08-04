@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Col, Row, Form, Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
@@ -9,16 +9,17 @@ import FacebookAuthButton from '../../components/FacebookAuthButton'
 import GoogleAuthButton from '../../components/GoogleAuthButton'
 import FormInput from '../../components/Form/FormInput'
 import { RingLoader } from '../../components/Loaders'
-import isObject from '../../utils/isObject'
-import looper from '../../utils/loopObject'
+// import isObject from '../../utils/isObject'
+// import looper from '../../utils/loopObject'
 
 import './index.scss'
+import capitalize from '../../utils/capitalize'
 
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
-    .min(7, 'Too Short!')
+    .min(4, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
 });
@@ -28,8 +29,7 @@ function SignIn() {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const { login } = useSelector((state) => state.user);
-  const loginErrors = login.errors;
-  const { loading, message } = login;
+  const { loading, message, error } = login;
 
   const {
     handleChange,
@@ -42,9 +42,19 @@ function SignIn() {
       initialValues: { email: '', password: '' },
       onSubmit: (values) => {
         console.log("Login", values)
-        dispatch(userAction.login(values)).then(() => navigate('/'));
+        dispatch(userAction.login(values))
+        // .then(() => navigate('/'));
     },
   });
+  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => localStorage.token ? navigate('/') : null, [localStorage.token, navigate])
+
+  useEffect(() => {
+    if (message) {
+      navigate('/')
+    }
+  }, [message, navigate])
 
 
   return (
@@ -75,23 +85,23 @@ function SignIn() {
             </Col>
           </Row>
           <Row>
-            <Col className='d-flex justify-content-center align-items-center'>
+            <Col className='col-12 d-flex justify-content-center align-items-center'>
               <span className='or'>or</span>
             </Col>
-            <Col className='d-flex justify-content-center align-items-center'>
+            <Col className='col-12 d-flex justify-content-center align-items-center'>
               {
-                message ? (<p className="text-success text-center"><strong>{message}</strong></p>) : ''
+                message ? (<p className="text-success text-center"><strong>{capitalize(message)}</strong></p>) : ''
               }
-              {
-                loginErrors ? (
-                  isObject(loginErrors) ? (
-                    looper(loginErrors).map(item => item)
-                  ) : (<p className="text-danger text-center"><strong>{loginErrors}</strong></p>)
+              {/* {
+                error ? (
+                  isObject(error) ? (
+                    looper(error).map(item => item)
+                  ) : (<p className="text-danger text-center"><strong>{error}</strong></p>)
                 ) : ''
-              }
+              } */}
               {
-                loginErrors ? (
-                  <p className="text-danger text-center"><strong>{loginErrors}</strong></p>
+                error ? (
+                  <p className="text-danger text-center"><strong>{capitalize(error)}</strong></p>
                 ) : ''
               }
             </Col>

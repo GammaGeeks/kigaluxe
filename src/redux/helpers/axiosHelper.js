@@ -10,7 +10,7 @@ export default (data = {}) => {
   const { token, URL, header, options = {} } = data;
   const { onUploadProgress } = options;
   const baseURL = URL || (reactUrl && `${reactUrl}/api`) || (defaultUrl && `${defaultUrl}/api`);
-  const headers = { token: token || localStorage.getItem("token") || undefined, 'Content-Type': header || 'application/json', 'Access-Control-Allow-Origin': reactUrl, 'Access-Control-Allow-Credentials': true, crossdomain: true };
+  const headers = { authorization: `bear ${token}` || localStorage.getItem("token") || undefined, 'Content-Type': header || 'application/json', 'Access-Control-Allow-Origin': reactUrl, 'Access-Control-Allow-Credentials': true, crossdomain: true };
   if (onUploadProgress) {
     return (NODE_ENV === 'test' && axios) || axios.create({ baseURL, headers, onUploadProgress });
   }
