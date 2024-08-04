@@ -189,7 +189,7 @@ function SinUp() {
               </Col>
             </Row>
             <Row className='d-flex justify-content-center align-items-center gap-3'>
-              <div className="d-flex justify-content-evenly mt-4">
+              <Form.Group className="d-flex justify-content-evenly mt-4">
                 {
                   genderOptions.map(option => (
                     <FormCheckPart
@@ -223,7 +223,7 @@ function SinUp() {
                   onBlur={handleBlur}
                   value='none'
                 /> */}
-              </div>
+              </Form.Group>
               {errors.gender ? <p className="error-text text-center text-danger font-italic">{errors.gender}</p> : ''}
             </Row>
             <Row className='d-flex justify-content-center align-items-center gap-3'>

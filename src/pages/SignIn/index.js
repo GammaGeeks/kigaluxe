@@ -48,7 +48,7 @@ function SignIn() {
   });
   
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => localStorage.token ? navigate('/') : null, [localStorage.token, navigate])
+  // useEffect(() => localStorage.token ? navigate('/') : null, [localStorage.token, navigate])
 
   useEffect(() => {
     if (message) {
