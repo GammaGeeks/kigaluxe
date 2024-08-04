@@ -51,6 +51,7 @@ function SinUp() {
   const { signup } = useSelector((state) => state.user)
   const navigate = useNavigate()
   const { loading, message, error } = signup;
+  const token = localStorage.getItem('token')
 
 
   // Using Formik

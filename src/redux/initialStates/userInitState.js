@@ -6,7 +6,7 @@ const userInitialState = {
   profile: {},
   login: {
     loading: false,
-    // user: {},
+    user: {},
     message: '',
     error: ''
   },
@@ -17,7 +17,7 @@ const userInitialState = {
   },
   signup: {
     loading: false,
-    user: {},
+    // user: {},
     message: '',
     error: ''
   },
