@@ -3,10 +3,9 @@ const userInitialState = {
   loading: false,
   message: '',
   error: '',
-  profile: {},
+  profile: null,
   login: {
     loading: false,
-    user: {},
     message: '',
     error: ''
   },

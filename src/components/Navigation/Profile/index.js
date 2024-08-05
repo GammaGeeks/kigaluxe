@@ -1,0 +1,84 @@
+/* eslint-disable no-unused-vars */
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Dropdown, Image } from 'react-bootstrap';
+import Form from 'react-bootstrap/Form';
+
+import './index.scss'
+
+// The forwardRef is important!!
+// Dropdown needs access to the DOM node in order to position the Menu
+const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+  // eslint-disable-next-line jsx-a11y/anchor-is-valid
+  <a
+    href=""
+    ref={ref}
+    onClick={(e) => {
+      e.preventDefault();
+      onClick(e);
+    }}
+  >
+    {children}
+    {/* &#x25bc; */}
+  </a>
+));
+
+// forwardRef again here!
+// Dropdown needs access to the DOM of the Menu to measure it
+const CustomMenu = React.forwardRef(
+  ({ children, style, className, 'aria-labelledby': labeledBy }, ref) => {
+    // const [value, setValue] = useState('');
+
+    return (
+      <div
+        ref={ref}
+        style={style}
+        className={className}
+        aria-labelledby={labeledBy}
+      >
+        {/* <Form.Control
+          autoFocus
+          className="mx-3 my-2 w-auto"
+          placeholder="Type to filter..."
+          onChange={(e) => setValue(e.target.value)}
+          value={value}
+        /> */}
+        <ul className="list-unstyled">
+          {React.Children.toArray(children).filter(
+            (child) => child.props.children.toLowerCase(),
+          )}
+        </ul>
+      </div>
+    );
+  },
+);
+
+
+const Profile = () => {
+  const { profileImg, firstname } = useSelector((state) => state.user.profile)
+  return (
+    <Dropdown>
+      <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
+        <div className='d-flex justify-content-center mt-2'>
+          <Image
+            width="50"
+            height="50"
+            src={profileImg ? profileImg : require('../../../assets/avatar.png')}
+            roundedCircle
+          />
+        </div>
+        <div className='d-flex justify-content-center'>
+          {firstname ? <p className='greeting'>Hi, {firstname}</p> : ''}
+        </div>
+      </Dropdown.Toggle>
+  
+      <Dropdown.Menu className='profile_ul' as={CustomMenu}>
+        <Dropdown.Item className='link' eventKey="1">Profile</Dropdown.Item>
+        <Dropdown.Item className='link' eventKey="2">Settings</Dropdown.Item>
+        <Dropdown.Item className='link' eventKey="3">Sign Out</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  )
+}
+
+export default Profile
