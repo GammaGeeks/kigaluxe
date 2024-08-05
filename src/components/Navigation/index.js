@@ -1,11 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
 import { Container, Navbar, Nav, Offcanvas, NavDropdown } from 'react-bootstrap'
+import { useSelector } from 'react-redux'
 import './index.scss'
+import Profile from './Profile'
 
 function Navigation() {
   const [navbar, setNavbar] = useState(false)
   const [expand, setExpand] = useState(false)
+
+  const { profile } = useSelector((state) => state.user);
+
+  console.log(profile);
 
   const changeNavBackground = () => {
     if (window.scrollY >= 100) {
@@ -61,6 +67,13 @@ function Navigation() {
                   </NavDropdown>
                   <Nav.Link href="#action2">About</Nav.Link>
                 </Nav>
+                {
+                  profile ? (
+                    <Nav className="justify-content-end">
+                      <Profile />
+                    </Nav>
+                  ) : ''
+                }
                 {/* <Form className="d-flex">
                   <Form.Control
                     type="search"
