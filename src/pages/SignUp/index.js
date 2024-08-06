@@ -51,7 +51,8 @@ function SinUp() {
   const { signup } = useSelector((state) => state.user)
   const navigate = useNavigate()
   const { loading, message, error } = signup;
-  // const token = localStorage.getItem('token')
+  const token = localStorage.getItem('token')
+  const user = JSON.parse(localStorage.getItem('user'))
 
 
   // Using Formik
@@ -93,11 +94,18 @@ function SinUp() {
     }
   });
 
+  
   useEffect(() => {
-    if (message) {
+    if (token && user && !user.isVerified) {
       navigate('/auth/confirm')
     }
-  }, [message, navigate])
+  }, [token, navigate, user])
+
+  useEffect(() => {
+    if (token && user && user.isVerified) {
+      navigate('/')
+    }
+  }, [token, navigate, user])
 
   return (
     <Container fluid>

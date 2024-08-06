@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
 import { Container, Navbar, Nav, Offcanvas, NavDropdown } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import './index.scss'
 import Profile from './Profile'
 
@@ -9,9 +9,7 @@ function Navigation() {
   const [navbar, setNavbar] = useState(false)
   const [expand, setExpand] = useState(false)
 
-  const { profile } = useSelector((state) => state.user);
-
-  console.log(profile);
+  const user = JSON.parse(localStorage.getItem('user'))
 
   const changeNavBackground = () => {
     if (window.scrollY >= 100) {
@@ -26,7 +24,7 @@ function Navigation() {
   return (
     <Navbar collapseOnSelect expand="lg" className={`naV ${navbar ? 'active' : ''}`}>
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             alt=""
             src={require('../../assets/logo.png')}
@@ -68,9 +66,9 @@ function Navigation() {
                   <Nav.Link href="#action2">About</Nav.Link>
                 </Nav>
                 {
-                  profile ? (
+                  user ? (
                     <Nav className="justify-content-end">
-                      <Profile />
+                      <Profile firstname={user.firstname} profileImg={user.profileImg}/>
                     </Nav>
                   ) : ''
                 }

@@ -1,12 +1,11 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-import { useSelector } from 'react-redux';
 import './index.scss'
 
 function SectionOne() {
   const navigate = useNavigate();
 
-  const { profile } = useSelector(state => state.user)
+  const user = JSON.parse(localStorage.getItem('user'));
 
   return (
   <div className='row sectionOne'>
@@ -15,9 +14,9 @@ function SectionOne() {
       <div className='secondText'>Unlock The Door To Your New Home With Ease</div>
       <div className='buttonSection'>
         {
-          profile ? (
+          user ? (
             <>
-              <div className='firstText'>Hi, {profile.firstname}. <br />Welcome to KigaluXe platform.</div>
+              <div className='firstText'>Hi, {user.firstname}. <br />Welcome to KigaluXe platform.</div>
             </>
           ) : (
             <>

@@ -3,7 +3,7 @@ const userInitialState = {
   loading: false,
   message: '',
   error: '',
-  profile: null,
+  profile: undefined,
   login: {
     loading: false,
     message: '',

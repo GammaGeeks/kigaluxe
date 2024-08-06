@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Container, Row, Col, Button, Form } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import {ReactComponent as Icon} from '../../assets/svg/envelope.svg'
 import FormInput from '../../components/Form/FormInput'
 import * as Yup from 'yup'
@@ -19,7 +19,8 @@ function Confirm() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { confirm } = useSelector((state) => state.user)
-
+  const token = localStorage.getItem('token')
+  const user = localStorage.getItem('user')
   const { loading, message, error } = confirm
 
   const {
@@ -34,7 +35,6 @@ function Confirm() {
       code: '',
     },
     onSubmit: (values) => {
-        console.log(values)
         const {
             // eslint-disable-next-line no-unused-vars
             code
@@ -54,10 +54,10 @@ function Confirm() {
   });
 
   useEffect(() => {
-    if (message) {
-      navigate('/auth/sign_in')
+    if (token === 'undefined') {
+      navigate('/auth/sign_up')
     }
-  }, [message, navigate])
+  }, [token, navigate])
   
   return (
     <Container fluid>
@@ -67,10 +67,10 @@ function Confirm() {
           <img className='logo-container' src={require('../../assets/logo/png/color_logo_no_background.png')} alt='logo' />
           <Icon />
           <h1>Confirm your email</h1>
-          <h3>Hi, firstname</h3>
+          <h3>Hi, {user ? user.firstname : 'user'}</h3>
           <p>Thank you for signing up with KigaluXe. Please confirm your email address <br />by filling the code sent to your email:</p>
           {
-            message ? (<p className="text-success text-center"><strong>{capitalize(message)}</strong></p>) : ''
+            message ? (<p className="text-success text-center"><strong>{capitalize(message)}</strong><br />Please login <Link to='/auth/sign_in'>here</Link></p>) : ''
           }
             
           {
@@ -92,10 +92,11 @@ function Confirm() {
               loading ? (
                 <RingLoader height="80" width="80" />
               ) : (
-                <Button style={{width: '100%'}} variant='main-color' type='submit'>Confirm</Button>
+                <Button className='mt-3' style={{width: '100%'}} variant='main-color' type='submit'>Confirm</Button>
             )
             }
           </Form>
+          <p>You already have an account? Please login <Link to='/auth/sign_in'>here</Link></p>
         </Col>
       </Row>
     </Container>
