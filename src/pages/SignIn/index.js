@@ -27,9 +27,11 @@ const LoginSchema = Yup.object().shape({
 
 function SignIn() {
   const navigate = useNavigate()
-  const dispatch = useDispatch();
-  const { login } = useSelector((state) => state.user);
-  const { loading, message, error } = login;
+  const dispatch = useDispatch()
+  const token =  localStorage.getItem('token')
+  const user = JSON.parse(localStorage.getItem('user'))
+  const { login } = useSelector((state) => state.user)
+  const { loading, message, error } = login
 
   const {
     handleChange,
@@ -46,15 +48,13 @@ function SignIn() {
         // .then(() => navigate('/'));
     },
   });
-  
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  // useEffect(() => localStorage.token ? navigate('/') : null, [localStorage.token, navigate])
+
 
   useEffect(() => {
-    if (message) {
+    if (token && user && user.isVerified) {
       navigate('/')
     }
-  }, [message, navigate])
+  }, [token, navigate, user])
 
 
   return (
@@ -120,7 +120,7 @@ function SignIn() {
                   onBlur={handleBlur}
                   value={values.email}
                 />
-                {errors.email ? <p className="error-text text-center text-danger font-italic">{errors.email}</p> : ''}
+                {errors.email ? <Form.Text className="error-text text-center text-danger font-italic">{errors.email}</Form.Text> : ''}
               </Col>
             </Row>
             <Row className='d-flex justify-content-center align-items-center gap-3 mt-1'>
@@ -134,7 +134,7 @@ function SignIn() {
                   onBlur={handleBlur}
                   value={values.password}
                 />
-                {errors.password? <p className="error-text text-center text-danger font-italic">{errors.password}</p> : ''}
+                {errors.password? <Form.Text className="error-text text-center text-danger font-italic">{errors.password}</Form.Text> : ''}
               </Col>
             </Row>
             <Row>

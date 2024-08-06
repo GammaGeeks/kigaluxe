@@ -8,9 +8,9 @@ function FormSelect({
     newClass = '',
     label = null,
   }) {
-    console.log(options)
-    console.log(newClass);
-    console.log(label);
+    // console.log(options)
+    // console.log(newClass);
+    // console.log(label);
     return (
       <FloatingLabel className={`mySelect ${newClass}`} controlId="floatingSelect" label={label}>
         <Form.Select aria-label="Floating label select example">

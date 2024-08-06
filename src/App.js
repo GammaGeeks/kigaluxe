@@ -6,6 +6,8 @@ import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import Confirm from './pages/Confirm'
+// import SingleProperty from './pages/SingleProperty'
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         </Route>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          {/* <Route path='single_property' element={<SingleProperty />} /> */}
+          <Route path='profile' element={<Profile />} />
         </Route>
       </Routes>
     </div>

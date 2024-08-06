@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Dropdown, Image } from 'react-bootstrap';
-import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom'
+import { userAction } from '../../../redux/actions';
 
 import './index.scss'
 
@@ -54,8 +55,18 @@ const CustomMenu = React.forwardRef(
 );
 
 
-const Profile = () => {
-  const { profileImg, firstname } = useSelector((state) => state.user.profile)
+const Profile = ({profileImg, firstname}) => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  
+
+  const handleLogout = (e) => {
+    // e.preventDefault()
+    dispatch(userAction.logout())
+    navigate('/auth/sign_in')
+  }
+
   return (
     <Dropdown>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
@@ -73,9 +84,15 @@ const Profile = () => {
       </Dropdown.Toggle>
   
       <Dropdown.Menu className='profile_ul' as={CustomMenu}>
-        <Dropdown.Item className='link' eventKey="1">Profile</Dropdown.Item>
+        <Dropdown.Item onClick={() => navigate('/profile')} className='link' eventKey="1">Profile</Dropdown.Item>
         <Dropdown.Item className='link' eventKey="2">Settings</Dropdown.Item>
-        <Dropdown.Item className='link' eventKey="3">Sign Out</Dropdown.Item>
+        <Dropdown.Item
+          onClick={handleLogout}
+          className='link'
+          eventKey="3"
+        >
+          Sign Out
+        </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   )

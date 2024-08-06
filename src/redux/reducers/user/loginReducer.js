@@ -12,10 +12,10 @@ export default (state, { type, payload }) => {
         draft.login.error = '';
       })
     case userActionTypes.LOGIN_USER_SUCCESS:
+      localStorage.user = JSON.stringify(payload.user);
       localStorage.token = payload.token;
       return produce(state, (draft) => {
         draft.loading = false
-        draft.message = payload.message
         draft.token = payload.token
         draft.profile = payload.user
         draft.login.loading = false
