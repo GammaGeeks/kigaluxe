@@ -2,13 +2,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { Image } from 'react-bootstrap'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 import "./index.scss"
 
 function SectionOne() {
   const { profile } = useSelector(state => state.user)
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   const { firstname } = profile
 

@@ -6,7 +6,7 @@ import Home from './pages/Home'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import Confirm from './pages/Confirm'
-import SingleProperty from './pages/SingleProperty'
+// import SingleProperty from './pages/SingleProperty'
 import Profile from './pages/Profile';
 
 function App() {

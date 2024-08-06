@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { Image, Badge, Tabs, Tab, Table, Pagination } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
+// import { useDispatch } from 'react-redux'
 
 import "./index.scss"
 
@@ -18,7 +18,8 @@ for (let number = 1; number <= 5; number++) {
 
 function SectionOne() {
   const user = JSON.parse(localStorage.getItem('user'))
-  const dispatch = useDispatch()
+  // eslint-disable-next-line no-unused-vars
+  // const dispatch = useDispatch()
 
 //   const { firstname } = profile
 
