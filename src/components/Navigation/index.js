@@ -47,7 +47,7 @@ function Navigation() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-center flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">Home</Nav.Link>
+                  <Nav.Link href="/">Home</Nav.Link>
                   <NavDropdown
                     title="Listings"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
@@ -63,7 +63,7 @@ function Navigation() {
                       Something else here
                     </NavDropdown.Item> */}
                   </NavDropdown>
-                  <Nav.Link href="#action2">About</Nav.Link>
+                  <Nav.Link href="#">About</Nav.Link>
                 </Nav>
                 {
                   user ? (
