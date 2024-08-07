@@ -80,8 +80,8 @@ function SignIn() {
 
           <Row>
             <Col className='d-flex justify-content-center align-items-center gap-2'>
-              <FacebookAuthButton text='Sign in with Facebook' />
-              <GoogleAuthButton text='Sign in with Google' />
+              <FacebookAuthButton text='Sign in with Facebook' page='sign_in' />
+              <GoogleAuthButton text='Sign in with Google' page='sign_in' />
             </Col>
           </Row>
           <Row>

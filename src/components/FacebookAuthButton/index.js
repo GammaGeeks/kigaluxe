@@ -1,28 +1,39 @@
 import { faFacebook } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { userAction } from '../../redux/actions'
 import { Button } from 'react-bootstrap'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
 import './index.scss'
 const appId = process.env.REACT_APP_FACEBOOK_APP_ID
 
-function FacebookAuthButton({text}) {
+function FacebookAuthButton({text, page}) {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [userID, setUserID] = useState('')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [picture, setPicture] = useState('')
+
+  const dispatch = useDispatch()
 
   let fbContent
 
   const responseFacebook = (response) => {
     console.log(response)
     setIsLoggedIn(true)
-    setUserID(response.userID)
-    setName(response.name)
-    setEmail(response.email)
-    setPicture(response.picture.data.url)
+
+    if(page === 'sign_up') dispatch(userAction.signup({
+      firstname: response.name,
+      email: response.email,
+      profileImg: response.picture.data.url,
+      isVerified: true,
+      password: response.userID
+    }))
+
+    
+
+    if(page === 'sign_in') dispatch(userAction.login({
+      email: response.email,
+      password: response.userID
+    }))
   }
   const componentClicked = () => {
     console.log('clicked')
@@ -30,17 +41,9 @@ function FacebookAuthButton({text}) {
 
   if (isLoggedIn){
     fbContent = (
-      <div className='loggedIn'>
-        <img src={picture} alt={name}/>
-        <h2>Welcome {name}</h2>
-        <p>Your User ID is: {userID}</p>
-        <p>Email: {email}</p>
-      </div>
-    )
-    fbContent = (
       <FacebookLogin
         appId={appId}
-        autoLoad={true}
+        autoLoad={false}
         fields='name,email,picture'
         onClick={componentClicked}
         callback={responseFacebook}
@@ -55,7 +58,7 @@ function FacebookAuthButton({text}) {
     fbContent = (
       <FacebookLogin
         appId={appId}
-        autoLoad={true}
+        autoLoad={false}
         fields='name,email,picture'
         onClick={componentClicked}
         callback={responseFacebook}

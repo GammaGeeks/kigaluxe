@@ -8,7 +8,7 @@ export default (payload = {}) => dispatch => dispatch(apiAction({
   method: 'get',
   httpOptions: { token: localStorage.token },
   data: { ...payload },
-  url: `${REACT_APP_BASIC_URL}/api/auth/logout`,
+  url: `${REACT_APP_LOCAL_URL}/api/auth/logout`,
   onStart: userActionTypes.LOGOUT_USER_START,
   onEnd: userActionTypes.LOGOUT_USER_END,
   onSuccess: userActionTypes.LOGOUT_USER_SUCCESS,

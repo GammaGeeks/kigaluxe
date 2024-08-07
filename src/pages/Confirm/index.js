@@ -20,7 +20,7 @@ function Confirm() {
   const navigate = useNavigate()
   const { confirm } = useSelector((state) => state.user)
   const token = localStorage.getItem('token')
-  const user = localStorage.getItem('user')
+  const user = JSON.parse(localStorage.getItem('user'))
   const { loading, message, error } = confirm
 
   const {
@@ -35,29 +35,18 @@ function Confirm() {
       code: '',
     },
     onSubmit: (values) => {
-        const {
-            // eslint-disable-next-line no-unused-vars
-            code
-        } = values
-        dispatch(userAction.confirm({
-          code: code
-        }))
-        // dispatch(userAction.signup({
-        //     firstname,
-        //     lastname,
-        //     email,
-        //     phone,
-        //     gender,
-        //     password
-        // })).then(() => navigate('/auth/confirm'));
+      const { code } = values
+      dispatch(userAction.confirm({
+        code: code
+      }))
     }
   });
 
   useEffect(() => {
-    if (token === 'undefined') {
-      navigate('/auth/sign_up')
+    if (token && user && user.isVerified) {
+      navigate('/auth/sign_in')
     }
-  }, [token, navigate])
+  }, [token, navigate, user])
   
   return (
     <Container fluid>
