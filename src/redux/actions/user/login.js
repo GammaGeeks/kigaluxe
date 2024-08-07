@@ -8,7 +8,7 @@ export default (payload = {}) => (dispatch) => dispatch(apiAction({
   method: 'post',
   httpOptions: { token: localStorage.token },
   data: { ...payload },
-  url: `${REACT_APP_LOCAL_URL}/api/auth/signin`,
+  url: `${REACT_APP_BASIC_URL}/api/auth/signin`,
   onStart: userTypes.LOGIN_USER_START,
   onEnd: userTypes.LOGIN_USER_END,
   onSuccess: userTypes.LOGIN_USER_SUCCESS,
