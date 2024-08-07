@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Dropdown, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom'
+import { NotificationManager } from 'react-notifications'
 import { userAction } from '../../../redux/actions';
-
+import 'react-notifications/lib/notifications.css';
 import './index.scss'
 
 // The forwardRef is important!!
@@ -59,15 +60,17 @@ const Profile = ({profileImg, firstname}) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  
+  const { logout } = useSelector(state => state.user)
 
   const handleLogout = (e) => {
     // e.preventDefault()
     dispatch(userAction.logout())
-    navigate('/auth/sign_in')
+    if (logout && logout.error) NotificationManager.error(logout.error, '', 3000);
+    if (logout && logout.message) NotificationManager.success(logout.message, '', 3000);
   }
 
   return (
+  <>
     <Dropdown>
       <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components">
         <div className='d-flex justify-content-center mt-2'>
@@ -87,7 +90,7 @@ const Profile = ({profileImg, firstname}) => {
         <Dropdown.Item onClick={() => navigate('/profile')} className='link' eventKey="1">Profile</Dropdown.Item>
         <Dropdown.Item className='link' eventKey="2">Settings</Dropdown.Item>
         <Dropdown.Item
-          onClick={handleLogout}
+          onClick={() => handleLogout()}
           className='link'
           eventKey="3"
         >
@@ -95,6 +98,7 @@ const Profile = ({profileImg, firstname}) => {
         </Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
+  </>
   )
 }
 

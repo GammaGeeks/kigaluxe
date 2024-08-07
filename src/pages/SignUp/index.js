@@ -100,7 +100,7 @@ function SinUp() {
       navigate('/auth/confirm')
     }
   }, [token, navigate, user])
-
+  
   useEffect(() => {
     if (token && user && user.isVerified) {
       navigate('/')
@@ -118,8 +118,8 @@ function SinUp() {
 
           <Row>
             <Col className='d-flex justify-content-center gap-3'>
-              <FacebookAuthButton text='Sign up with Facebook' />
-              <GoogleAuthButton text='Sign up with Google' />
+              <FacebookAuthButton text='Sign up with Facebook' page='sign_up' />
+              <GoogleAuthButton text='Sign up with Google' page='sign_up' />
             </Col>
           </Row>
           <Row>
