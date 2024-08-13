@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Card, Button, Col } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import CardProperty from './Card'
 
 function Listings() {
