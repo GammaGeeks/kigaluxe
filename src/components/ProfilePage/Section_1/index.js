@@ -6,11 +6,22 @@ import { Image, Badge, Tabs, Tab, Table, Pagination } from 'react-bootstrap'
 
 import "./index.scss"
 
-let active = 2;
-let items = [];
+let active = 1;
+let items1 = [];
 for (let number = 1; number <= 5; number++) {
-  items.push(
+  items1.push(
     <Pagination.Item key={number} active={number === active}>
+      {number}
+    </Pagination.Item>,
+  );
+}
+
+
+let active2 = 3;
+let items2 = [];
+for (let number = 1; number <= 5; number++) {
+  items2.push(
+    <Pagination.Item key={number} active={number === active2}>
       {number}
     </Pagination.Item>,
   );
@@ -90,6 +101,9 @@ function SectionOne() {
                   </tr>
                 </tbody>
               </Table>
+              <div className='d-flex justify-content-center mt-2'>
+                <Pagination size="sm">{items1}</Pagination>
+              </div>
             </Tab>
             <Tab eventKey="receivedLinks" title="Received links">
               <Table striped bordered hover variant="dark">
@@ -134,11 +148,11 @@ function SectionOne() {
                   </tr>
                 </tbody>
               </Table>
+              <div className='d-flex justify-content-center mt-2'>
+                <Pagination size="sm">{items2}</Pagination>
+              </div>
             </Tab>
           </Tabs>
-        </div>
-        <div className='d-flex justify-content-center mt-2'>
-          <Pagination size="sm">{items}</Pagination>
         </div>
       </div>
     </div>

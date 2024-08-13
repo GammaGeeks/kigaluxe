@@ -1,15 +1,18 @@
 import React from 'react'
+import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 import { Card, Button } from 'react-bootstrap'
 
 import './index.scss'
 
-const HomeCard = () => {
+const HomeCard = ({property}) => {
+  // console.log(property);
+  const {imageUrls, title, price, property_type, isForSale, isForRent, location, bedrooms, bathrooms, createdAt} = property
   return (
     <Card>
       <Card.Img
-        src={require('../../../../assets/HouseOne 1.png')}
+        src={imageUrls[0]}
         style={{
           objectFit: 'cover',
         }}
@@ -18,14 +21,20 @@ const HomeCard = () => {
       <Card.Body
         style={{ width: '60%' }}
       >
-        <Card.Title>House for sale in Kigali</Card.Title>
+        <Card.Title>{title}</Card.Title>
         <Card.Text>
-          <span><FontAwesomeIcon icon={faLocationDot} /> Kigali City, Gasabo, Kimihurura</span>
-          <p>Published on 12 June | Expires on 12 July</p>
-          <p><b>Details:</b> 4 bedrooms, 2 bathrooms</p>
+          <span><FontAwesomeIcon icon={faLocationDot} /> {location}</span>
+          <p>Published on {moment(createdAt).format('Do MMMM')}</p>
+          <p><b>Details:</b> {bedrooms} bedrooms, {bathrooms} bathrooms</p>
+          <p><b>Type:</b> {property_type}</p>
           <div className="badges">
-            <span className='type'>For Sale</span>
-            <span className='price'><b>Price:</b> $200,000</span>
+            {
+              isForSale ? <span className='type'>For Sale</span> : ''
+            }
+            {
+              isForRent ? <span className='type'>For Rent</span> : ''
+            }
+            <span className='price'><b>Price:</b> RWF {price}</span>
           </div>
           <Button variant="primary">More Details <span>
               <FontAwesomeIcon
