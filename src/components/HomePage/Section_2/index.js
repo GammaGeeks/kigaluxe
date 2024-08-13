@@ -13,14 +13,14 @@ import HomeCard from './HomeCard'
 const SectionTwo = () => {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(propertiesAction.fetchAllProperties(1, 2))
+    dispatch(propertiesAction.fetchAllProperties(1, 4))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const properties = useSelector(state => state.properties)
   
   // eslint-disable-next-line no-unused-vars
   const { listOfProperties, Next, Prev, getProperties } = properties
-  const currentPage = Next.page || Prev.page
+
 
   // console.log(properties);
   
@@ -28,14 +28,24 @@ const SectionTwo = () => {
   const nextPagination = () => {
     const nextPage = Next.page
     console.log('NextPage', nextPage);
-    if(nextPage) dispatch(propertiesAction.fetchAllProperties(nextPage, 2));
+    if(nextPage) dispatch(propertiesAction.fetchAllProperties(nextPage, 4));
   };
 
   const prevPagination = (e) => {
     const prevPage = Prev.page
     console.log('PrevPage', prevPage);
-    if(prevPage) dispatch(propertiesAction.fetchAllProperties(prevPage, 2))
+    if(prevPage) dispatch(propertiesAction.fetchAllProperties(prevPage, 4))
   };
+
+  // const currentPage = Next && !Next.page ? (
+  //   Prev.page + 1
+  // ) : (
+  //   Prev && Prev.page ? (
+  //     Prev.page + 1
+  //   ) : (
+  //     Next.page - 1
+  //   )
+  // )
 
   return (
     <Row className='sectionTwo'>
@@ -50,24 +60,12 @@ const SectionTwo = () => {
             </Col>
           )
         }) : ''}
-        {/* <Col md={6}>
-          <HomeCard />
-        </Col>
-        <Col md={6}>
-          <HomeCard />
-        </Col>
-        <Col md={6}>
-          <HomeCard />
-        </Col>
-        <Col md={6}>
-          <HomeCard />
-        </Col> */}
         <div className='d-flex justify-content-center align-content-center'>
-          <Pagination>
-            <Pagination.Prev onClick={prevPagination} />
-            <Pagination.Item>{currentPage}</Pagination.Item>
-            <Pagination.Next onClick={nextPagination}  />
-          </Pagination>
+            <Pagination>
+              <Pagination.Prev onClick={prevPagination} />
+              {/* <Pagination.Item>{currentPage ? currentPage : 1}</Pagination.Item> */}
+              <Pagination.Next onClick={nextPagination}  />
+            </Pagination>
         </div>
       </div>
     </Row>

@@ -10,7 +10,7 @@ const HomeCard = ({property}) => {
   // console.log(property);
   const {imageUrls, title, price, property_type, isForSale, isForRent, location, bedrooms, bathrooms, createdAt} = property
   return (
-    <Card>
+    <Card className='card_home'>
       <Card.Img
         src={imageUrls[0]}
         style={{

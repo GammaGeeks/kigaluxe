@@ -8,6 +8,7 @@ import SignIn from './pages/SignIn'
 import Confirm from './pages/Confirm'
 // import SingleProperty from './pages/SingleProperty'
 import Profile from './pages/Profile';
+import ForRent from './pages/ForRent';
 import PrivateRouteClient from './components/PrivateRouteClient';
 import PrivateRouteAuth from './components/PrivateRouteAuth';
 
@@ -39,6 +40,7 @@ function App() {
             path="profile"
             element={<PrivateRouteClient element={<Profile />} />}
           />
+          <Route path='for_rent' element={<ForRent />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react'
 import { Container, Navbar, Nav, Offcanvas, NavDropdown } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 // import { useSelector } from 'react-redux'
 import './index.scss'
 import Profile from './Profile'
@@ -8,6 +9,8 @@ import Profile from './Profile'
 function Navigation() {
   const [navbar, setNavbar] = useState(false)
   const [expand, setExpand] = useState(false)
+
+  const navigate = useNavigate()
 
   const user = JSON.parse(localStorage.getItem('user'))
 
@@ -24,7 +27,7 @@ function Navigation() {
   return (
     <Navbar collapseOnSelect expand="lg" className={`naV ${navbar ? 'active' : ''}`}>
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand onClick={() => navigate('/')}>
           <img
             alt=""
             src={require('../../assets/logo.png')}
@@ -47,13 +50,13 @@ function Navigation() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-center flex-grow-1 pe-3">
-                  <Nav.Link href="/">Home</Nav.Link>
+                  <Nav.Link onClick={() => navigate('/')}>Home</Nav.Link>
                   <NavDropdown
                     title="Listings"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
                     <NavDropdown.Item href="#action3">Properties for Sale</NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">Properties for Rent</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => navigate('/for_rent')}>Properties for Rent</NavDropdown.Item>
                     <NavDropdown.Item href="#action3">Lands</NavDropdown.Item>
                     {/* <NavDropdown.Item href="#action4">
                       Another action
