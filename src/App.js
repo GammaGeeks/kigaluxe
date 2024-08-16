@@ -8,8 +8,11 @@ import SignIn from './pages/SignIn'
 import Confirm from './pages/Confirm'
 // import SingleProperty from './pages/SingleProperty'
 import Profile from './pages/Profile';
+import ForRent from './pages/ForRent';
+import ForSale from './pages/ForSale';
 import PrivateRouteClient from './components/PrivateRouteClient';
 import PrivateRouteAuth from './components/PrivateRouteAuth';
+import AllProperties from './pages/AllProperties';
 
 function App() {
   return (
@@ -39,6 +42,9 @@ function App() {
             path="profile"
             element={<PrivateRouteClient element={<Profile />} />}
           />
+          <Route path='for_rent' element={<ForRent />} />
+          <Route path='for_sale' element={<ForSale />} />
+          <Route path='all_properties' element={<AllProperties />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

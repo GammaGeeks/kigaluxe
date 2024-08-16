@@ -12,16 +12,15 @@ function FormInput({
   label = null,
   onChange = null,
   onBlur = null,
-  checked = null
 }) {
   return (
     <Form.Check
+      variant
       id={`default-${type}`}
       inline={inline}
       type={type}
       label={label}
       name={name}
-      checked
       onChange={onChange}
       onBlur={onBlur}
       value

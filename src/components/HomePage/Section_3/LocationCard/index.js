@@ -8,12 +8,12 @@ const LocationCard = ({image, title}) => {
   const [active, setActive] = useState('')
   
   const handleActive = () => {
-    console.log("Active");
+    // console.log("Active");
     setActive('onHover')
   }
   
   const handleNonActive = () => {
-    console.log("Non Active");
+    // console.log("Non Active");
     setActive('')
   }
 
