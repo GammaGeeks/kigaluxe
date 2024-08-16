@@ -13,7 +13,7 @@ const deleteBlog = (id) => (dispatch) => {
       token: localStorage.token,
       header: 'multipart/form-data'
     },
-    url: `${REACT_APP_LOCAL_URL}/blog/${id}`,
+    url: `${REACT_APP_BASIC_URL}/blog/${id}`,
     onStart: blogTypes.DELETE_BLOG_START,
     onEnd: blogTypes.DELETE_BLOG_END,
     onSuccess: blogTypes.DELETE_BLOG_SUCCESS,

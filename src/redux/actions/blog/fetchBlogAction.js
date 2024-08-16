@@ -6,7 +6,7 @@ import { apiAction } from '../../helpers';
 const getSingleProperty = (id) => (dispatch) => dispatch(apiAction({
   method: 'get',
   // httpOptions: { token: localStorage.token },
-  url: `${REACT_APP_LOCAL_URL}/${id}/blog/single`,
+  url: `${REACT_APP_BASIC_URL}/${id}/blog/single`,
   onStart: blogTypes.FETCH_BLOG_START,
   onEnd: blogTypes.FETCH_BLOG_END,
   onSuccess: blogTypes.FETCH_BLOG_SUCCESS,

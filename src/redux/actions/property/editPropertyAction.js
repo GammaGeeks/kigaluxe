@@ -12,7 +12,7 @@ const editProperty = (id, data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${REACT_APP_LOCAL_URL}/property/${id}`,
+    url: `${REACT_APP_BASIC_URL}/property/${id}`,
     onStart: propertyTypes.UPDATE_PROPERTY_START,
     onEnd: propertyTypes.UPDATE_PROPERTY_END,
     onSuccess: propertyTypes.UPDATE_PROPERTY_SUCCESS,

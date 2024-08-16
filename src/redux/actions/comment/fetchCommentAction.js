@@ -6,7 +6,7 @@ import { apiAction } from '../../helpers';
 const getSingleProperty = (id) => (dispatch) => dispatch(apiAction({
   method: 'get',
   // httpOptions: { token: localStorage.token },
-  url: `${REACT_APP_LOCAL_URL}/${id}/comment/single`,
+  url: `${REACT_APP_BASIC_URL}/${id}/comment/single`,
   onStart: commentTypes.FETCH_COMMENT_START,
   onEnd: commentTypes.FETCH_COMMENT_END,
   onSuccess: commentTypes.FETCH_COMMENT_SUCCESS,

@@ -13,7 +13,7 @@ const deleteProperty = (id) => (dispatch) => {
       token: localStorage.token,
       header: 'multipart/form-data'
     },
-    url: `${REACT_APP_LOCAL_URL}/property/${id}`,
+    url: `${REACT_APP_BASIC_URL}/property/${id}`,
     onStart: propertyTypes.DELETE_PROPERTY_START,
     onEnd: propertyTypes.DELETE_PROPERTY_END,
     onSuccess: propertyTypes.DELETE_PROPERTY_SUCCESS,

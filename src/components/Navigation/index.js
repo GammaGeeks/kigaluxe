@@ -55,9 +55,9 @@ function Navigation() {
                     title="Listings"
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
-                    <NavDropdown.Item href="#action3">Properties for Sale</NavDropdown.Item>
+                    <NavDropdown.Item onClick={() => navigate('/for_sale')}>Properties for Sale</NavDropdown.Item>
                     <NavDropdown.Item onClick={() => navigate('/for_rent')}>Properties for Rent</NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">Lands</NavDropdown.Item>
+                    <NavDropdown.Item  onClick={() => navigate('/all_properties')}>All Properties</NavDropdown.Item>
                     {/* <NavDropdown.Item href="#action4">
                       Another action
                     </NavDropdown.Item>

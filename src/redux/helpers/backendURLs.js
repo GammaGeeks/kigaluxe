@@ -11,10 +11,10 @@ const REACT_APP_FRONTEND = 'https://imikino.rw';
 // const REACT_APP_LOCAL_URL = 'http://localhost:4000/api';
 // const REACT_APP_FRONTEND_SERVER_URL = 'http://localhost:4000';
 
-const facebookAuth = `${REACT_APP_LOCAL_URL}/auth/facebook`;
-const googleAuth = `${REACT_APP_LOCAL_URL}/auth/google`;
-const LOGIN_URL = `${REACT_APP_LOCAL_URL}/auth/signin`;
-const LOGOUT_URL = `${REACT_APP_LOCAL_URL}/auth/logout`;
+const facebookAuth = `${REACT_APP_BASIC_URL}/auth/facebook`;
+const googleAuth = `${REACT_APP_BASIC_URL}/auth/google`;
+const LOGIN_URL = `${REACT_APP_BASIC_URL}/auth/signin`;
+const LOGOUT_URL = `${REACT_APP_BASIC_URL}/auth/logout`;
 
 export {
   REACT_APP_LOCAL_URL,

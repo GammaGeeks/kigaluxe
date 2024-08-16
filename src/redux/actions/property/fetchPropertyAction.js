@@ -6,7 +6,7 @@ import { apiAction } from '../../helpers';
 const getSingleProperty = (arrival, departure) => (dispatch) => dispatch(apiAction({
   method: 'get',
   // httpOptions: { token: localStorage.token },
-  url: `${REACT_APP_LOCAL_URL}/${departure}/property/single`,
+  url: `${REACT_APP_BASIC_URL}/${departure}/property/single`,
   onStart: propertyTypes.FETCH_PROPERTY_START,
   onEnd: propertyTypes.FETCH_PROPERTY_END,
   onSuccess: propertyTypes.FETCH_PROPERTY_SUCCESS,

@@ -46,6 +46,7 @@ function Listings() {
           }) : ''
         )
       }
+      
       {/* <CardProperty />
       <CardProperty />
       <CardProperty />

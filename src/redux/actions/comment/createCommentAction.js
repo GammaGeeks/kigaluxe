@@ -14,7 +14,7 @@ const createComment = (data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${REACT_APP_LOCAL_URL}/comment`,
+    url: `${REACT_APP_BASIC_URL}/comment`,
     onStart: commentTypes.CREATE_COMMENT_START,
     onEnd: commentTypes.CREATE_COMMENT_END,
     onSuccess: commentTypes.CREATE_COMMENT_SUCCESS,

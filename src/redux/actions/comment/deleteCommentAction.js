@@ -13,7 +13,7 @@ const deleteComment = (id) => (dispatch) => {
       token: localStorage.token,
       header: 'multipart/form-data'
     },
-    url: `${REACT_APP_LOCAL_URL}/comment/${id}`,
+    url: `${REACT_APP_BASIC_URL}/comment/${id}`,
     onStart: commentTypes.DELETE_COMMENT_START,
     onEnd: commentTypes.DELETE_COMMENT_END,
     onSuccess: commentTypes.DELETE_COMMENT_SUCCESS,

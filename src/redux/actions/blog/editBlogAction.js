@@ -12,7 +12,7 @@ const editBlog = (id, data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${REACT_APP_LOCAL_URL}/blog/${id}`,
+    url: `${REACT_APP_BASIC_URL}/blog/${id}`,
     onStart: blogTypes.UPDATE_BLOG_START,
     onEnd: blogTypes.UPDATE_BLOG_END,
     onSuccess: blogTypes.UPDATE_BLOG_SUCCESS,

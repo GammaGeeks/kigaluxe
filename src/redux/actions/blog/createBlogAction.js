@@ -14,7 +14,7 @@ const createBlog = (data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${REACT_APP_LOCAL_URL}/blog`,
+    url: `${REACT_APP_BASIC_URL}/blog`,
     onStart: blogTypes.CREATE_BLOG_START,
     onEnd: blogTypes.CREATE_BLOG_END,
     onSuccess: blogTypes.CREATE_BLOG_SUCCESS,

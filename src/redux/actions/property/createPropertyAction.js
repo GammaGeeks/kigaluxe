@@ -14,7 +14,7 @@ const createProperty = (data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${REACT_APP_LOCAL_URL}/property`,
+    url: `${REACT_APP_BASIC_URL}/property`,
     onStart: propertyTypes.CREATE_PROPERTY_START,
     onEnd: propertyTypes.CREATE_PROPERTY_END,
     onSuccess: propertyTypes.CREATE_PROPERTY_SUCCESS,

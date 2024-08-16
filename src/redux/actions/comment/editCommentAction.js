@@ -12,7 +12,7 @@ const editComment = (id, data, options) => (dispatch) => {
       header: 'multipart/form-data',
       options
     },
-    url: `${REACT_APP_LOCAL_URL}/comment/${id}`,
+    url: `${REACT_APP_BASIC_URL}/comment/${id}`,
     onStart: commentTypes.UPDATE_COMMENT_START,
     onEnd: commentTypes.UPDATE_COMMENT_END,
     onSuccess: commentTypes.UPDATE_COMMENT_SUCCESS,
