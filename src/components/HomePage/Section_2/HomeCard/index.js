@@ -20,6 +20,7 @@ const HomeCard = ({property}) => {
       />
       <Card.Body
         style={{ width: '60%' }}
+        className='card-body-property'
       >
         <Card.Title>{title}</Card.Title>
         <Card.Text>

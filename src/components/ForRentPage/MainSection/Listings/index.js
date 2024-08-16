@@ -14,6 +14,10 @@ function Listings() {
       <CardProperty />
       <CardProperty />
       <CardProperty />
+      <CardProperty />
+      <CardProperty />
+      <CardProperty />
+      <CardProperty />
     </Row>
   </>
   )
