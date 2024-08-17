@@ -13,6 +13,7 @@ export default (state = properties, { type, payload }) => {
       // };
       return produce(state, (draft) => {
         draft.loading = true;
+        draft.getProperties.loading = true;
         draft.getProperties.message = '';
         draft.getProperties.error = '';
       })
@@ -36,6 +37,7 @@ export default (state = properties, { type, payload }) => {
         draft.listOfProperties = [...payload.data.paginate]
         draft.Next = {...payload.data.Next }
         draft.Prev = {...payload.data.Previous }
+        draft.getProperties.loading = false;
         draft.getProperties.message = payload.message;
         draft.getProperties.error = '';
       })
@@ -47,6 +49,7 @@ export default (state = properties, { type, payload }) => {
       return produce(state, (draft) => {
         draft.loading = false;
         draft.error = payload.error
+        draft.getProperties.loading = false;
         draft.getProperties.message = ''
         draft.getProperties.error = payload.error
       })
