@@ -36,7 +36,7 @@ function Listings() {
   <>
     <Row>
       {
-        getProperties.loading ? (
+        properties && getProperties.loading ? (
           <RingLoader height="80" width="80" />
         ) : (
           properties && listOfProperties ? listOfProperties.map((item, key) => {

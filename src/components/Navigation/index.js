@@ -30,9 +30,9 @@ function Navigation() {
         <Navbar.Brand onClick={() => navigate('/')}>
           <img
             alt=""
-            src={require('../../assets/logo.png')}
-            width="70"
-            height="70"
+            src={require('../../assets/logo/png/logoOne.png')}
+            width="180"
+            height="150"
             className="d-inline-block align-top"
           />{' '}
         </Navbar.Brand>

@@ -8,11 +8,11 @@ import './index.scss'
 
 const HomeCard = ({property}) => {
   // console.log(property);
-  const {imageUrls, title, price, property_type, isForSale, isForRent, location, bedrooms, bathrooms, createdAt} = property
+  const {imageUrl, title, price, property_type, isForSale, isForRent, location, bedrooms, bathrooms, createdAt} = property
   return (
     <Card className='card_home'>
       <Card.Img
-        src={imageUrls[0]}
+        src={imageUrl[0]? imageUrl[0]: 'https://via.placeholder.com/150'}
         style={{
           objectFit: 'cover',
         }}
