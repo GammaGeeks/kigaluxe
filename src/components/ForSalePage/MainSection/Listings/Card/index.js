@@ -17,7 +17,7 @@ import caretSVG from '../../../../../assets/svg/card/caret.svg'
 
 function CardProperty({property}) {
   const {
-    imageUrls,
+    imageUrl,
     title,
     price,
     property_type,
@@ -31,7 +31,7 @@ function CardProperty({property}) {
   return (
     <Col xs={12} sm={6} md={4} lg={3} className='mt-4'>
       <div className="card" style={{borderRadius: '10px'}}>
-        <Image style={{borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}} src={imageUrls[0]} className="card-img-top" alt="image_property" />
+        <Image style={{borderTopLeftRadius: '10px', borderTopRightRadius: '10px'}} src={imageUrl[0]? imageUrl[0]: 'https://via.placeholder.com/150'} className="card-img-top" alt="image_property" />
         <div className='d-flex flex-column-reverse' style={{position: 'absolute', top: 5, right: 5}}>
           <Button className='share_button_here'><Image style={{width: '20px', height: '20px'}} src={shareSVG} alt='image_svg' /></Button>
           <Button className='share_button_here'><FontAwesomeIcon icon={faFacebook} /></Button>
@@ -42,7 +42,7 @@ function CardProperty({property}) {
         <div className="card-body details_area">
           <div className='d-flex gap-2'>
             <div className='d-flex justify-content-center align-items-center'><Badge style={{lineHeight: '15px'}} className='price'>RWF {price}</Badge></div>
-            <div className='d-flex justify-content-center align-items-center'><Badge className='images'><Image style={{width: '15px'}} src={imageSVG} alt='image_svg' /> {imageUrls.length}</Badge></div>
+            <div className='d-flex justify-content-center align-items-center'><Badge className='images'><Image style={{width: '15px'}} src={imageSVG} alt='image_svg' /> {imageUrl.length}</Badge></div>
           </div>
           <div className='title'>{title}</div>
           <div className='d-flex justify-content-between gap-2 mb-2'>
